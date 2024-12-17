@@ -1,0 +1,15 @@
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary d-flex flex-column">
+    <!-- Navigazione nel footer -->
+    <div class="order-1">
+        {% block footer_nav %}
+            {% include "landingpage/partials/_footer_nav.html" %}
+        {% endblock %}
+    </div>
+
+    <!-- Crediti del footer -->
+    <div class="order-2">
+        {% block footer_credits %}
+            {% include "landingpage/partials/_footer_credits.html" %}
+        {% endblock %}
+    </div>
+</footer>
