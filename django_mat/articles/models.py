@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from django.db.models import CASCADE
-
+from django.urls import reverse
 
 
 class Articles(models.Model):
@@ -20,3 +20,7 @@ class Articles(models.Model):
 
     def __str__(self):
         return self.title
+
+
+    def get_absolute_url(self):
+        return reverse('articles:article-detail',kwargs={'slug': self.slug})
