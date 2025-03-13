@@ -6,3 +6,6 @@ class Landingpage(models.Model):
 
     def __str__(self):
         return self.message
+    
+    def get_absolute_url(self):
+        return reverse("articles:article-detail", *args[self.slug,])

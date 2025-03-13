@@ -4,6 +4,8 @@ from django.views.generic.base import TemplateView
 from articles.models import Articles
 
 from .models import Landingpage
+from django.core.paginator import Paginator
+
 
 
 def index(request):
@@ -19,7 +21,19 @@ class LandingpageView(TemplateView):
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
-        context['banner'] = Articles.objects.all()[1]
-        context['highlights'] = Articles.objects.all()[2:3]
+        articles =Articles.objects.all()
+        context['banner'] = articles[0]
+        context['highlights'] = articles[1:3]
+        articles_list = articles[3:]
+        context['articles_list'] = articles_list
+        paginator = Paginator(articles_list, 3)
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context['page_obj'] = page_obj
         return context
+    
+
+    
+
+
  
