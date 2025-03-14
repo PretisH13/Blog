@@ -17,8 +17,10 @@ Including another URLconf
 from . import views
 from django.urls import path
 
+app_name = 'articles'
 
 urlpatterns = [
-    #path('fbs/', views.index, name='fbs_landingpage'),
-    path('', views.LandingpageView.as_view(), name='cbs_landingpage')
+    path('list/', views.ArticleListView.as_view(), name='article-list'),
+    path('<slug:slug>/', views.ArticleDetailView.as_view(), name='article-detail'),
+
 ]
