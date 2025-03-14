@@ -1,33 +1,29 @@
-    <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+<div class="row mb-2">
+  <div class="col-md-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
         Latest articles added
       </h3>
-{% for article in page_obj %}
+        {% for article in page_obj %}
 
 
-<div class= "blog-post">
+        <div class= "blog-post">
 
 
-      <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-1">{{ article.title }}</h2>
-        <p class="blog-post-meta">{{article.published}}<a href="#">Admin</a></p>
+              <article class="blog-post">
+                <h2 class="display-5 link-body-emphasis mb-1">{{ article.title }}</h2>
+                <p class="blog-post-meta">{{article.published}}<a href="#">Admin</a></p>
 
-        <p>{{article.body}}</p>
-      </article>
-      <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-1">{{ article.title }}</h2>
-        <p class="blog-post-meta">{{article.published}}<a href="#">Admin</a></p>
+                <p>{{article.body}}</p>
+              </article>
 
-        <p>{{article.body}}</p>
-      </article>
+        <div>
+          {% endfor %}
+          {% block pagination %}
+          {% include "landingpage/partials/_paginations.html" with page=page_obj %}
+          {% endblock %}
 
-<div>
-  {% endfor %}
-  {% block pagination %}
-  {% include "landingpage/partials/_paginations.html" with page=page_obj %}
-  {% endblock %}
-  
-
-
-
+      </div>
     </div>
+  </div>
+</div>
