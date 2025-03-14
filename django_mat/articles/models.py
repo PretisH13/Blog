@@ -6,6 +6,13 @@ from django.urls import reverse
 
 
 class Articles(models.Model):
+    CATEGORIES = [
+        ('TC','Technology'),
+        ('DS','Design'),
+        ('CL','Culture'),
+        ('SC','Science'),
+    ]
+    category = models.CharField(max_length=2 ,choices=CATEGORIES, default='TL')
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250)
     img = models.ImageField(upload_to="upload", blank=True)
