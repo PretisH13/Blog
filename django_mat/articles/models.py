@@ -6,11 +6,23 @@ from django.urls import reverse
 
 
 class Articles(models.Model):
+    DRAFT= 'DRAFT'
+    PUBLISHED = 'PUBLISHED'
+    STATUS_CHOICES=(
+        (DRAFT,'Draft'),
+        (PUBLISHED, 'Published')
+    )
+    status= models.CharField(max_length=10,choices=STATUS_CHOICES, default=PUBLISHED)
+
+    TECHNOLOGY ='TC'
+    DESING = 'DS'
+    CULTURE = 'CL'
+    SCIENCE = 'SC'
     CATEGORIES = [
-        ('TC','Technology'),
-        ('DS','Design'),
-        ('CL','Culture'),
-        ('SC','Science'),
+        (TECHNOLOGY, 'Technology'),
+        (DESING,'Design'),
+        (CULTURE,'Culture'),
+        (SCIENCE,'Science')
     ]
     category = models.CharField(max_length=2 ,choices=CATEGORIES, default='TL')
     title = models.CharField(max_length=250)

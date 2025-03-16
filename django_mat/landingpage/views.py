@@ -21,7 +21,7 @@ class LandingpageView(TemplateView):
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
-        articles =Articles.objects.all()
+        articles =Articles.objects.filter(status='PUBLISHED')
         context['banner'] = articles[0]
         context['highlights'] = articles[1:3]
         articles_list = articles[3:]

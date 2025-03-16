@@ -17,8 +17,8 @@ Including another URLconf
 from . import views
 from django.urls import path
 
+app_name ='landingpage'
 
 urlpatterns = [
-    #path('fbs/', views.index, name='fbs_landingpage'),
-    path('', views.LandingpageView.as_view(), name='cbs_landingpage')
+    path('', views.LandingpageView.as_view(), name='landingpage')
 ]
