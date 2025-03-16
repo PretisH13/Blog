@@ -20,7 +20,8 @@ from django.urls import path
 app_name = 'articles'
 
 urlpatterns = [
-    path('list/', views.ArticleListView.as_view(), name='article-list'),
+    path('list/<slug:category_tag>/', views.ArticleListView.as_view(), name='article-list'),
     path('<slug:slug>/', views.ArticleDetailView.as_view(), name='article-detail'),
+    
 
 ]

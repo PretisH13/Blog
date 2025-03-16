@@ -30,6 +30,8 @@ class LandingpageView(TemplateView):
         page_number = self.request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         context['page_obj'] = page_obj
+        context['categories'] = Articles.CATEGORIES
+        
         return context
     
 
