@@ -1,0 +1,21 @@
+{% extends "landingpage/base.html" %}
+
+{% block page_content %}
+
+<div class="container-fluid"></div>
+
+<h5>Info profile:</h5>
+<ol>
+    <li>Nome: {{user.username}}</li>
+    <li>Email: {{user.email}}</li>
+    <li>Born on : {{user.profile.birthday}}</li>
+
+
+</ol>
+<form action="{% url 'accounts:logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+
+
+{% endblock page_content %}

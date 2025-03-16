@@ -1,0 +1,9 @@
+{% extends "landingpage/base.html" %}
+
+{% block page_content %}
+<div class="container text-center p-5">
+    <h2>Sei stato disconnesso</h2>
+    <p>Grazie per averci visitato. Speriamo di rivederti presto!</p>
+    <a href="{% url 'accounts:login' %}" class="btn btn-primary">Accedi di nuovo</a>
+</div>
+{% endblock %}
