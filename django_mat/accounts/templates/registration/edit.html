@@ -1,0 +1,47 @@
+{% extends "landingpage/base.html" %}
+
+{% block page_content %}
+<div class="container">
+
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    <h2>Edit you profile</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% comment %} {{user_form.as_p}} {% endcomment %}
+      
+        
+        {% for field in user_form %}
+        <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <small style="color:gray">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+            <small style="color:red">{{ error }}</small>
+            {% endfor %}
+        </p>
+        {% endfor %}
+  {% comment %} {{profile_form.as_p}} {% endcomment %}
+  {% for field in profile_form %}
+  <p>
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.help_text %}
+      <small style="color:gray">{{ field.help_text }}</small>
+      {% endif %}
+      {% for error in field.errors %}
+      <small style="color:red">{{ error }}</small>
+      {% endfor %}
+  </p>
+  {% endfor %}
+        <br>
+        <input type="submit" value="Edit">
+    </form>
+    <br>
+
+</div>
+{% endblock %}

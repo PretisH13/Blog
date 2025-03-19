@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .forms import RegistrationForm
+from .forms import RegistrationForm, UserEditForm, ProfileEditForm
 from django.contrib.auth import login, authenticate
+from django.contrib import messages
 
 
 @login_required
@@ -27,3 +28,26 @@ def register(request):
         form = RegistrationForm()
 
     return render(request, 'registration/registration.html', {'form': form}) 
+
+@login_required
+
+def edit(request):
+    if request.method == 'POST':
+        user_form =UserEditForm(instance=request.user,data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile,data=request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request,'Your profile has been successfully saved.')
+
+            return render(request, 'accounts/profile.html')
+        else:
+            messages.error(request,'The data entered is not valid.')
+    else:
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST)
+
+
+        return render(request,'registration/edit.html',{'user_form':user_form, 'profile_form':profile_form})
+
+        
