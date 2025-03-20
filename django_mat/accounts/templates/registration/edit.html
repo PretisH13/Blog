@@ -1,6 +1,23 @@
 {% extends "landingpage/base.html" %}
 
 {% block page_content %}
+{%if messages%}
+<div class= "messages">
+{% for messages in messages %}
+{%if messages.tag%}
+
+<div class= "alert alert-{{messages.tags}}" role='alert'>
+    {% else %}
+    <div class= "alert alert-prime" role="alert">
+   {% endif %}
+{{messages}}   
+ </div> 
+ {% endfor %}
+</div>
+{%endif%}
+
+
+</div>
 <div class="container">
 
     {% if form.errors %}
