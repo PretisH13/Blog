@@ -1,21 +1,22 @@
-<div class="col-md-12">
-  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-    <div class="col p-4 d-flex flex-column position-static">
-      <h3>Latest articles added</h3>
+<div class="container">
+  <div>
+    <h3>Latest articles added</h3>
 
-      {% for article in page_obj %}
-        <div class="blog-post">
-          <article class="blog-post">
-            <h2 class="display-5 link-body-emphasis mb-1">{{ article.title }}</h2>
-            <p class="blog-post-meta">{{ article.published }}<a href="#">Admin</a></p>
-            <p>{{ article.body }}</p>
-          </article>
-        </div>
-      {% endfor %}
+    {% for article in page_obj %}
+      <div class="blog-post">
+        <article class="blog-post">
+          <h2>{{ article.title }}</h2>
+          <p class="blog-post-meta">{{ article.published }} <a href="#">Admin</a></p>
+          {% if article.img %} 
+            <img src="{{ article.img.url }}" alt="{{ article.title }}" class="article-image">
+          {% endif %}
+          <p>{{ article.body }}</p>
+        </article>
+      </div>
+    {% endfor %}
 
-      {% block pagination %}
-        {% include "landingpage/partials/_paginations.html" with page=page_obj %}
-      {% endblock %}
-    </div>
+    {% block pagination %}
+      {% include "landingpage/partials/_paginations.html" with page=page_obj %}
+    {% endblock %}
   </div>
 </div>

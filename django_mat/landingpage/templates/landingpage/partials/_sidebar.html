@@ -1,16 +1,14 @@
-<div class="row">
-        <div class="col-md-4">
-      
-          {% block widget_about %}
-            {% include "landingpage/partials/_widget_about.html" %}
-          {% endblock %}
-      
-          {% block widget_archives %}
-            {% include "landingpage/partials/_widget_archives.html" %}
-          {% endblock %}
-      
-          {% block widget_social %}
-            {% include "landingpage/partials/_widget_social.html" %}
-          {% endblock %}
-        </div>
+
+<div class="sidebar container">
+  {% block widget_about %}
+    {% include "landingpage/partials/_widget_about.html" %}
+  {% endblock %}
+
+  {% block widget_archives %}
+    {% include "landingpage/partials/_widget_archives.html" %}
+  {% endblock %}
+
+  {% block widget_social %}
+    {% include "landingpage/partials/_widget_social.html" %}
+  {% endblock %}
 </div>

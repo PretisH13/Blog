@@ -1,12 +1,14 @@
-<main role="main" class="container">
-    <div class="row g-5">
-      {% block section_articles%}
-      {% include "landingpage/partials/_section_articles.html" %}
-      {% endblock %}
+
+<main >
+
+    <div class="row g-5 container">
+      
+        {% block section_articles %}
+            {% include "landingpage/partials/_section_articles.html" %}
+        {% endblock %}
   
-      {% block sidebar%}
-      {% include "landingpage/partials/_sidebar.html" %}
-      {% endblock %}
+        {% block sidebar %}
+            {% include "landingpage/partials/_sidebar.html" %}
+        {% endblock %}
     </div>
-  
   </main>

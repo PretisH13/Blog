@@ -38,7 +38,7 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, "Il profilo è stato salvato correttamente")
+            messages.success(request, "Il profilo è stato salvato correttamente.")
             return render(request, 'accounts/profile.html')
         else:
             messages.error(request, "I dati inseriti non sono validi.", extra_tags='danger')

@@ -2,25 +2,37 @@
 
 {% block page_content %}
 
-<div class="container-fluid"></div>
+<div class="profile-container">
+    <h2 class="profile-title">Your Profile</h2>
+    
+    <div class="profile-details">
+        <div class="profile-info">
+            <div class="info-item">
+                <span class="info-label">Name:</span>
+                <span class="info-value">{{ user.username }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email:</span>
+                <span class="info-value">{{ user.email }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Born on:</span>
+                <span class="info-value">{{ user.profile.birthday }}</span>
+            </div>
+        </div>
 
-<h5>Info profile:</h5>
-<ol>
-    <li>Nome: {{user.username}}</li>
-    <li>Email: {{user.email}}</li>
-    <li>Born on : {{user.profile.birthday}}</li>
+        <div class="profile-actions">
+            <form action="{% url 'accounts:logout' %}" method="post" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
 
-
-</ol>
-<form action="{% url 'accounts:logout' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Logout</button>
-</form>
-<br>
-<p>Change profile <a href="{% url "accounts:edit" %}">Here</a></p>
-<p>Change password <a href="{% url 'accounts:password_change' %}">Here</a> </p>
-
+            <div class="action-links">
+                <a href="{% url 'accounts:edit' %}" class="action-link">Edit Profile</a>
+                <a href="{% url 'accounts:password_change' %}" class="action-link">Change Password</a>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 {% endblock page_content %}

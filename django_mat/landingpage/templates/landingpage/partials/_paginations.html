@@ -1,24 +1,26 @@
-<nav class="blog-pagination container" >
-        {% if page.has_previous %}
-            <a class="btn btn-outline-primary rounded-pill" href="?page=1">&laquo; first</a>
-            <a class="btn btn-outline-primary rounded-pill" href="?page={{ page.previous_page_number }}">previous</a>
-            {% else %}
-            <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">First</a>
-            <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Previous</a>
-        {% endif %}
-
-            Page {{ page.number }} of {{ page.paginator.num_pages }}.
-
-        {% if page.has_next %}
-            <a class="btn btn-outline-primary rounded-pill" href="?page={{ page.next_page_number }}">next</a>
-            <a class="btn btn-outline-primary rounded-pill" href="?page={{ page.paginator.num_pages }}">last &raquo;</a>
-        {% else %}
-            <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Next</a>
-            <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Last</a>
-        {% endif %}
-</nav>
-<br>
-<nav class="blog-pagination container" aria-label="Pagination">
-    <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
-    <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Newer</a>
+<nav class="pagination-container">
+    {% if page.has_previous %}
+      <a class="pagination-btn" href="?page=1">&laquo; first</a>
+      <a class="pagination-btn" href="?page={{ page.previous_page_number }}">previous</a>
+    {% else %}
+      <a class="pagination-btn disabled" aria-disabled="true">First</a>
+      <a class="pagination-btn disabled" aria-disabled="true">Previous</a>
+    {% endif %}
+  
+    <span class="pagination-info">Page {{ page.number }} of {{ page.paginator.num_pages }}.</span>
+  
+    {% if page.has_next %}
+      <a class="pagination-btn" href="?page={{ page.next_page_number }}">next</a>
+      <a class="pagination-btn" href="?page={{ page.paginator.num_pages }}">last &raquo;</a>
+    {% else %}
+      <a class="pagination-btn disabled" aria-disabled="true">Next</a>
+      <a class="pagination-btn disabled" aria-disabled="true">Last</a>
+    {% endif %}
+  </nav>
+  
+  <br>
+  
+  <nav class="pagination-container" aria-label="Pagination">
+    <a class="pagination-btn" href="#">Older</a>
+    <a class="pagination-btn disabled" aria-disabled="true">Newer</a>
   </nav>

@@ -1,6 +1,22 @@
-<h1>{{ object.title }}</h1>
-<p>{{ object.body}}</p>
-<p>Author: {{ object.author }}</p>
-<p>Published: {{ object.published|date }}</p>
+{% extends "landingpage/base.html" %}
 
+{% block page_content %}
 
+<div class="article-detail-container">
+    <div class="article-detail-card">
+        <h1 class="article-title">{{ object.title }}</h1>
+        {% if object.img %} 
+            <img src="{{ object.img.url }}" alt="{{ object.title }}" class="article-image">
+        {% else %}
+            <p>Nessuna immagine disponibile</p>
+        {% endif %}
+        <p class="article-body">{{ object.body }}</p>
+
+        <div class="article-meta">
+            <p class="article-author">Autore: <span>{{ object.author }}</span></p>
+            <p class="article-published">Pubblicato il: <span>{{ object.published|date }}</span></p>
+        </div>
+    </div>
+</div>
+
+{% endblock page_content %}

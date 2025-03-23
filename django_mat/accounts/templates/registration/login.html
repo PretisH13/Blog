@@ -1,38 +1,69 @@
 {% extends "landingpage/base.html" %}
 
 {% block page_content %}
-
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
+  <div class="login-container">
+    <!-- Messaggi di errore -->
+    {% if form.errors %}
+      <div class="alert error">
+        <i class="icon">⚠️</i>
+        <p>Your username and password didn't match. Please try again.</p>
+      </div>
     {% endif %}
-{% endif %}
 
-<form method="post" action="{% url 'accounts:login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+    {% if next %}
+      {% if user.is_authenticated %}
+        <div class="alert warning">
+          <i class="icon">🔒</i>
+          <p>
+            Your account doesn't have access to this page. To proceed, please login with an account that has access.
+          </p>
+        </div>
+      {% else %}
+        <div class="alert info">
+          <i class="icon">👋</i>
+          <p>Please login to see this page.</p>
+        </div>
+      {% endif %}
+    {% endif %}
 
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
+    <!-- Form di login -->
+    <form method="post" action="{% url 'accounts:login' %}" class="login-form">
+      {% csrf_token %}
+      <h2 class="form-title">Login</h2>
 
-{# Assumes you set up the password_reset view in your URLconf #}
-<p><a href="{% url 'accounts:password_reset' %}">Lost password?</a></p>
+      <div class="form-group">
+        <label for="{{ form.username.id_for_label }}">
+          <i class="icon">👤</i> Username
+        </label>
+        {{ form.username }}
+      </div>
 
+      <div class="form-group">
+        <label for="{{ form.password.id_for_label }}">
+          <i class="icon">🔑</i> Password
+        </label>
+        {{ form.password }}
+      </div>
+
+      <button type="submit" class="submit-button">
+        <i class="icon">🚀</i> Login
+      </button>
+
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+    <!-- Link per il reset della password -->
+    <div class="additional-links">
+      <p>
+        <a href="{% url 'accounts:password_reset' %}" class="link">
+          <i class="icon">🔗</i> Lost password?
+        </a>
+      </p>
+      <p>
+        {% comment %} <a href="#" class="link">
+          <i class="icon">📝</i> Create an account
+        </a> {% endcomment %}
+      </p>
+    </div>
+  </div>
 {% endblock %}
