@@ -22,6 +22,8 @@ app_name = 'articles'
 urlpatterns = [
     path('list/<slug:category_tag>/', views.ArticleListView.as_view(), name='article-list'),
     path('<slug:slug>/', views.ArticleDetailView.as_view(), name='article-detail'),
-    
+    path('<slug:slug>/like/', views.like_article, name='like-article'),
+    path('<slug:slug>/dislike/', views.dislike_article, name='dislike-article'),
+    path('<slug:slug>/comment/', views.add_comment, name='add-comment'),
 
 ]

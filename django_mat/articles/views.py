@@ -1,14 +1,19 @@
-# from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.detail import DetailView
-from .models import Articles
 from django.views.generic.list import ListView
+from .models import Articles, Comment
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.utils import timezone
 
 class ArticleDetailView(DetailView):
     model = Articles
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        context['comments'] = self.object.comments.all()  # Aggiungi i commenti al contesto
         return context
 
 class ArticleListView(ListView):
@@ -16,17 +21,44 @@ class ArticleListView(ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        tag =self.kwargs.get('category_tag', None)
+        tag = self.kwargs.get('category_tag', None)
         queryset = Articles.objects.filter(status='PUBLISHED')
         if tag:
-            queryset =Articles.objects.filter(status='PUBLISHED').filter(category__in=[tag])
+            queryset = Articles.objects.filter(status='PUBLISHED').filter(category__in=[tag])
         return queryset
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        # articles = Articles.objects.filter(status='PUBLISHED')
-        # context['articles_list'] = articles
+@login_required
+@require_POST
+def like_article(request, slug):
+    article = get_object_or_404(Articles, slug=slug)
+    if request.user in article.likes.all():
+        article.likes.remove(request.user)
+    else:
+        article.likes.add(request.user)
+        article.dislikes.remove(request.user)  # Rimuove dislike se presente
+    return JsonResponse({'total_likes': article.total_likes})
 
-        return context
+@login_required
+@require_POST
+def dislike_article(request, slug):
+    article = get_object_or_404(Articles, slug=slug)
+    if request.user in article.dislikes.all():
+        article.dislikes.remove(request.user)
+    else:
+        article.dislikes.add(request.user)
+        article.likes.remove(request.user)  # Rimuove like se presente
+    return JsonResponse({'total_dislikes': article.total_dislikes})
 
+@login_required
+@require_POST
+def add_comment(request, slug):
+    article = get_object_or_404(Articles, slug=slug)
+    body = request.POST.get('body')
+    if body:
+        comment = Comment.objects.create(article=article, author=request.user, body=body)
+        return JsonResponse({
+            'author': str(request.user),
+            'created': timezone.localtime(comment.created).strftime('%Y-%m-%d %H:%M:%S'),
+            'body': comment.body
+        })
+    return JsonResponse({'error': 'Comment cannot be empty'}, status=400)

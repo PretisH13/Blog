@@ -1587,3 +1587,198 @@ footer a:hover {
   margin: 0 auto;   /* Centra l'immagine */
   border-radius: 10px; /* Angoli arrotondati (opzionale) */
 }
+/* Contenitore principale per il dettaglio dell'articolo */
+.article-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Copre l'intera altezza della viewport */
+  background-color: var(--gray); /* Sfondo grigio chiaro */
+  padding: 20px;
+}
+
+/* Card di dettaglio dell'articolo */
+.article-detail-card {
+  background-color: var(--white); /* Sfondo bianco */
+  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
+  border-radius: 15px; /* Bordi arrotondati */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  padding: 30px;
+  max-width: 800px; /* Larghezza massima della card */
+  width: 100%; /* Adatta la larghezza al contenitore */
+}
+
+/* Titolo dell'articolo */
+.article-title {
+  font-size: 2rem; /* Dimensione del titolo */
+  color: var(--black); /* Colore del testo */
+  margin-bottom: 20px; /* Spaziatura inferiore */
+  text-transform: uppercase; /* Testo in maiuscolo */
+  letter-spacing: 2px; /* Spaziatura tra le lettere */
+  position: relative;
+}
+
+.article-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent); /* Blu celeste come accento */
+}
+
+/* Immagine dell'articolo */
+.article-image {
+  width: 100%; /* L'immagine si adatta alla larghezza della card */
+  height: auto; /* Mantiene le proporzioni senza distorsioni */
+  max-height: 400px; /* Imposta un'altezza massima */
+  object-fit: contain; /* L'immagine si adatta senza tagliarsi */
+  display: block; /* Evita spazi bianchi sotto l'immagine */
+  margin: 20px auto; /* Centra l'immagine */
+  border-radius: 10px; /* Angoli arrotondati */
+}
+
+/* Corpo dell'articolo */
+.article-body {
+  font-size: 1.1rem; /* Dimensione del testo */
+  color: var(--black); /* Colore del testo */
+  line-height: 1.6; /* Altezza della linea */
+  margin-bottom: 20px; /* Spaziatura inferiore */
+}
+
+/* Metadati dell'articolo */
+.article-meta {
+  font-size: 1rem; /* Dimensione del testo */
+  color: var(--black); /* Colore del testo */
+  margin-top: 20px; /* Spaziatura superiore */
+}
+
+.article-author,
+.article-published {
+  margin-bottom: 10px; /* Spaziatura tra gli elementi */
+}
+
+.article-author span,
+.article-published span {
+  font-weight: bold; /* Testo in grassetto */
+  color: var(--accent); /* Colore blu celeste */
+}
+
+/* Sezione Like/Dislike */
+.article-likes,
+.article-dislikes {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+.article-likes a,
+.article-dislikes a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.article-likes a:hover,
+.article-dislikes a:hover {
+  color: var(--black);
+  transform: translateY(-2px);
+  display: inline-block;
+}
+
+/* Sezione Commenti */
+h3 {
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+.comment {
+  background-color: var(--gray);
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.comment:hover {
+  background-color: var(--light-gray);
+}
+
+.comment p {
+  font-size: 1rem;
+  color: var(--black);
+  line-height: 1.5;
+}
+
+.comment p span {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* Form per aggiungere commenti */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+textarea {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--black);
+  transform: translateY(-3px);
+}
+
+/* Link per il login */
+form p a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+form p a:hover {
+  color: var(--black);
+}

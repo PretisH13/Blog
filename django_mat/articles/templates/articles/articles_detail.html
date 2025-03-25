@@ -1,11 +1,10 @@
 {% extends "landingpage/base.html" %}
 
 {% block page_content %}
-
 <div class="article-detail-container">
     <div class="article-detail-card">
         <h1 class="article-title">{{ object.title }}</h1>
-        {% if object.img %} 
+        {% if object.img %}
             <img src="{{ object.img.url }}" alt="{{ object.title }}" class="article-image">
         {% else %}
             <p>Nessuna immagine disponibile</p>
@@ -16,7 +15,40 @@
             <p class="article-author">Autore: <span>{{ object.author }}</span></p>
             <p class="article-published">Pubblicato il: <span>{{ object.published|date }}</span></p>
         </div>
-    </div>
-</div>
 
+        <!-- Like/Dislike -->
+     <!-- Like/Dislike -->
+<p class="article-likes">
+    Likes: {{ object.total_likes }}
+    {% if user.is_authenticated %}
+        <a href="{% url 'articles:like-article' object.slug %}">[Like]</a>
+    {% endif %}
+</p>
+<p class="article-dislikes">
+    Dislikes: {{ object.total_dislikes }}
+    {% if user.is_authenticated %}
+        <a href="{% url 'articles:dislike-article' object.slug %}">[Dislike]</a>
+    {% endif %}
+</p>
+
+<!-- Comments -->
+<h3>Comments</h3>
+{% for comment in comments %}
+    <div class="comment">
+        <p><span>{{ comment.author }}</span> ({{ comment.created|date }}): {{ comment.body }}</p>
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}
+
+<!-- Add Comment -->
+{% if user.is_authenticated %}
+    <form method="post" action="{% url 'articles:add-comment' object.slug %}">
+        {% csrf_token %}
+        <textarea name="body" rows="3" placeholder="Add a comment..."></textarea>
+        <button type="submit">Post Comment</button>
+    </form>
+{% else %}
+    <p><a href="{% url 'login' %}">Log in</a> to add a comment.</p>
+{% endif %}
 {% endblock page_content %}

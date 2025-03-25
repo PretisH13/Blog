@@ -1,148 +1,93 @@
+// Funzione per ottenere il token CSRF dal cookie
+function getCsrfToken() {
+  const cookieValue = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
+  return cookieValue || '';
+}
 
+// Funzione per inviare richieste AJAX
+function sendAjax(url, method, data, callback) {
+  const xhr = new XMLHttpRequest();
+  xhr.open(method, url, true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.setRequestHeader('X-CSRFToken', getCsrfToken());
+  xhr.onload = () => callback(xhr.status === 200 ? JSON.parse(xhr.responseText) : null);
+  xhr.send(new URLSearchParams(data).toString());
+}
 
-blogPosts.forEach(post => {
-    post.addEventListener('mouseenter', () => {
-      post.style.transform = 'translateY(-10px)';
-      post.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
-    });
-  
-    post.addEventListener('mouseleave', () => {
-      post.style.transform = 'translateY(0)';
-      post.style.boxShadow = 'none';
-    });
+// Funzione per effetti hover
+function addHover(element, enterStyles, leaveStyles) {
+  element.addEventListener('mouseenter', () => Object.assign(element.style, enterStyles));
+  element.addEventListener('mouseleave', () => Object.assign(element.style, leaveStyles));
+}
+
+// Inizializzazione
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Script caricato!');
+
+  // Hover per carte e featured post
+  document.querySelectorAll('.card, .featured-post').forEach(el => {
+      addHover(el, 
+          { transform: 'translateY(-10px)', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)' }, 
+          { transform: 'translateY(0)', boxShadow: 'none' }
+      );
   });
-  // Animazione dei link di navigazione
-  const navLinks = document.querySelectorAll('nav a');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      link.style.transform = 'translateY(-5px)';
-    });
-  
-    link.addEventListener('mouseleave', () => {
-      link.style.transform = 'translateY(0)';
-    });
+
+  // Hover per link di navigazione
+  document.querySelectorAll('nav a').forEach(el => {
+      addHover(el, { transform: 'translateY(-5px)' }, { transform: 'translateY(0)' });
   });
-  // Animazione delle cards
-  const cards = document.querySelectorAll('.card');
-  
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transform = 'translateY(-10px)';
-      card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
-    });
-  
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'translateY(0)';
-      card.style.boxShadow = 'none';
-    });
-  });
-  
-  // Animazione del featured post
-  const featuredPost = document.querySelector('.featured-post');
-  
-  featuredPost.addEventListener('mouseenter', () => {
-    featuredPost.style.transform = 'translateY(-10px)';
-    featuredPost.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
-  });
-  
-  featuredPost.addEventListener('mouseleave', () => {
-    featuredPost.style.transform = 'translateY(0)';
-    featuredPost.style.boxShadow = 'none';
-  });
-  // Funzione per tornare in cima alla pagina
-function scrollToTop() {
-  const backToTopButton = document.querySelector('.back-to-top a');
-  if (backToTopButton) {
-      backToTopButton.addEventListener('click', (e) => {
+
+  // Scroll to top
+  const backToTop = document.querySelector('.back-to-top a');
+  if (backToTop) {
+      backToTop.addEventListener('click', e => {
           e.preventDefault();
-          window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  }
+
+  // Gestione Like
+  document.querySelectorAll('.article-likes a').forEach(link => {
+      link.addEventListener('click', e => {
+          e.preventDefault();
+          sendAjax(link.href, 'POST', {}, response => {
+              if (response && response.total_likes !== undefined) {
+                  link.parentElement.childNodes[0].textContent = `Likes: ${response.total_likes} `;
+              }
+          });
+      });
+  });
+
+  // Gestione Dislike
+  document.querySelectorAll('.article-dislikes a').forEach(link => {
+      link.addEventListener('click', e => {
+          e.preventDefault();
+          sendAjax(link.href, 'POST', {}, response => {
+              if (response && response.total_dislikes !== undefined) {
+                  link.parentElement.childNodes[0].textContent = `Dislikes: ${response.total_dislikes} `;
+              }
+          });
+      });
+  });
+
+  // Gestione Commenti
+  const form = document.querySelector('form');
+  if (form) {
+      form.addEventListener('submit', e => {
+          e.preventDefault();
+          const data = Object.fromEntries(new FormData(form).entries());
+          sendAjax(form.action, 'POST', data, response => {
+              if (response && response.body) {
+                  const comments = document.querySelector('h3').nextElementSibling;
+                  const noComments = document.querySelector('h3 + p');
+                  if (noComments && noComments.textContent === 'No comments yet.') noComments.remove();
+                  const newComment = document.createElement('div');
+                  newComment.className = 'comment';
+                  newComment.innerHTML = `<p><span>${response.author}</span> (${response.created}): ${response.body}</p>`;
+                  comments.insertBefore(newComment, comments.firstChild);
+                  form.reset();
+              }
           });
       });
   }
-}
-
-// Funzione per aggiungere effetti hover dinamici
-function addHoverEffects() {
-  const cards = document.querySelectorAll('.card');
-  const navLinks = document.querySelectorAll('nav a');
-
-  // Effetto hover per le card
-  cards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-          card.style.transform = 'translateY(-10px)';
-          card.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.2)';
-      });
-
-      card.addEventListener('mouseleave', () => {
-          card.style.transform = 'translateY(0)';
-          card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-      });
-  });
-
-  // Effetto hover per i link di navigazione
-  navLinks.forEach(link => {
-      link.addEventListener('mouseenter', () => {
-          link.style.transform = 'translateY(-5px)';
-      });
-
-      link.addEventListener('mouseleave', () => {
-          link.style.transform = 'translateY(0)';
-      });
-  });
-}
-
-// Funzione per gestire la paginazione
-function handlePagination() {
-  const paginationButtons = document.querySelectorAll('.pagination-btn');
-
-  paginationButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-          if (button.classList.contains('disabled')) {
-              e.preventDefault();
-          } else {
-              // Simula il caricamento di una nuova pagina
-              console.log(`Navigating to: ${button.getAttribute('href')}`);
-              // Qui puoi aggiungere la logica per caricare dinamicamente i contenuti
-          }
-      });
-  });
-}
-
-// Funzione per animare gli elementi al caricamento della pagina
-function animateOnLoad() {
-  const featuredPost = document.querySelector('.featured-post');
-  const cards = document.querySelectorAll('.card');
-
-  if (featuredPost) {
-      featuredPost.style.opacity = '0';
-      featuredPost.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-          featuredPost.style.opacity = '1';
-          featuredPost.style.transform = 'translateY(0)';
-      }, 300);
-  }
-
-  cards.forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-      }, 300 + index * 100);
-  });
-}
-
-// Funzione principale per inizializzare tutto
-function init() {
-  scrollToTop();
-  addHoverEffects();
-  handlePagination();
-  animateOnLoad();
-}
-
-// Esegui la funzione init quando la pagina è completamente caricata
-document.addEventListener('DOMContentLoaded', init);
-
+});

@@ -33,6 +33,8 @@ class Articles(models.Model):
     created = models.DateTimeField(default=timezone.now)
     published = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
+    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='liked_articles', blank=True)
+    dislikes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='disliked_articles', blank=True)
 
     class Meta:
         ordering = ('-updated', '-published')
@@ -43,3 +45,24 @@ class Articles(models.Model):
 
     def get_absolute_url(self):
         return reverse('articles:article-detail',kwargs={'slug': self.slug})
+
+    @property
+    def total_likes(self):
+        return self.likes.count()
+
+    @property
+    def total_dislikes(self):
+        return self.dislikes.count()
+
+class Comment(models.Model):
+    article = models.ForeignKey(Articles, on_delete=CASCADE, related_name='comments')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
+    body = models.TextField(max_length=1000)
+    created = models.DateTimeField(default=timezone.now)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('-created',)
+
+    def __str__(self):
+        return f"Comment by {self.author} on {self.article}"
