@@ -1,3 +1,4 @@
+
 <div class="container">
   <div>
     <h3>Latest articles added</h3>
@@ -11,35 +12,46 @@
             <img src="{{ article.img.url }}" alt="{{ article.title }}" class="article-image">
           {% endif %}
           <p>{{ article.body }}</p>
+
+          <!-- Like/Dislike -->
+          <p class="article-likes">
+            Likes: <span id="likes-count-{{ article.slug }}">{{ article.total_likes }}</span>
+            {% if user.is_authenticated %}
+              <button class="like-button" data-slug="{{ article.slug }}">Like</button>
+            {% endif %}
+          </p>
+          <p class="article-dislikes">
+            Dislikes: <span id="dislikes-count-{{ article.slug }}">{{ article.total_dislikes }}</span>
+            {% if user.is_authenticated %}
+              <button class="dislike-button" data-slug="{{ article.slug }}">Dislike</button>
+            {% endif %}
+          </p>
+
+          <!-- Comments -->
+          <h4>Comments</h4>
+          <div class="comments-section" data-article-slug="{{ article.slug }}">
+            {% for comment in article.comments.all %}
+              <div class="comment">
+                <p><span>{{ comment.author }}</span> ({{ comment.created|date }}): {{ comment.body }}</p>
+              </div>
+            {% empty %}
+              <p>No comments yet.</p>
+            {% endfor %}
+          </div>
+
+          <!-- Add Comment -->
+          {% if user.is_authenticated %}
+            <form method="post" action="{% url 'articles:add-comment' article.slug %}" class="comment-form">
+              {% csrf_token %}
+              <textarea name="body" rows="2" placeholder="Add a comment..."></textarea>
+              <button type="submit">Post Comment</button>
+            </form>
+          {% else %}
+            <p><a href="{% url 'login' %}">Log in</a> to add a comment.</p>
+          {% endif %}
         </article>
       </div>
       <hr class="separator">
-
-<!-- Sezione commenti -->
-<h2 class="comments-title">Commenti</h2>
-{% for comment in comments %}
-    <div class="comment">
-        <p class="comment-author"><strong>{{ comment.author }}</strong>: {{ comment.text }}</p>
-        <p class="comment-date">Pubblicato il: {{ comment.created_at }}</p>
-    </div>
-{% empty %}
-    <p class="no-comments">Nessun commento ancora.</p>
-{% endfor %}
-
-<!-- Separatore -->
-<hr class="separator">
-
-<!-- Form per aggiungere un commento -->
-<h2 class="add-comment-title">Aggiungi un commento</h2>
-{% if user.is_authenticated %}
-    <form method="post" class="comment-form">
-        {% csrf_token %}
-        {{ form.as_p }}  <!-- Genera i campi del form -->
-        <button type="submit" class="submit-button">Invia</button>
-    </form>
-{% else %}
-    <p class="login-message">Devi effettuare l'accesso per lasciare un commento. <a href="{% url 'login' %}" class="login-link">Accedi qui</a>.</p>
-{% endif %}
     {% endfor %}
 
     {% block pagination %}

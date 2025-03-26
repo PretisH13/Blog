@@ -62,3 +62,17 @@ def add_comment(request, slug):
             'body': comment.body
         })
     return JsonResponse({'error': 'Comment cannot be empty'}, status=400)
+
+def search_articles(request):
+    query = request.GET.get('q', '')
+    category = request.GET.get('category', '')
+    status = request.GET.get('status', '')
+    articles = Articles.search(query, category, status)
+    context = {
+        'articles': articles,
+        'query': query,
+        'CATEGORIES': Articles.CATEGORIES,
+        'STATUS_CHOICES': Articles.STATUS_CHOICES,
+        'no_results': not articles.exists()  # Aggiungi flag per indicare nessun risultato
+    }
+    return render(request, 'articles/article_search.html', context)

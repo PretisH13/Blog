@@ -1,0 +1,43 @@
+{% extends "landingpage/base.html" %}
+
+{% block page_content %}
+<div class="search-section">
+    <form method="get" class="search-form">
+        <div class="search-container">
+            <input type="text" name="q" value="{{ query }}" placeholder="Cerca..." class="search-input">
+            <select name="category" class="search-select">
+                <option value="">Tutte le categorie</option>
+                {% for cat in CATEGORIES %}
+                    <option value="{{ cat.0 }}" {% if cat.0 == category %}selected{% endif %}>{{ cat.1 }}</option>
+                {% endfor %}
+            </select>
+            <select name="status" class="search-select">
+                <option value="">Tutti gli stati</option>
+                {% for stat in STATUS_CHOICES %}
+                    <option value="{{ stat.0 }}" {% if stat.0 == status %}selected{% endif %}>{{ stat.1 }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="search-btn">
+                <span>Cerca</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="search-icon" viewBox="0 0 24 24">
+                    <circle cx="10.5" cy="10.5" r="7.5"/>
+                    <path d="M21 21l-5.2-5.2"/>
+                </svg>
+            </button>
+        </div>
+    </form>
+
+    {% if articles %}
+        {% for article in articles %}
+            <div class="article-preview">
+                <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+                <p>{{ article.body|truncatewords:30 }}</p>
+            </div>
+        {% empty %}
+            <p class="no-results">Nessun articolo trovato per la ricerca "{{ query }}".</p>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">Nessun articolo trovato per la ricerca "{{ query }}".</p>
+    {% endif %}
+</div>
+{% endblock page_content %}

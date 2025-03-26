@@ -1,11 +1,11 @@
 /* Stile Moderno con Blu Celeste */
-
 :root {
   --black: #000000;
   --white: #FFFFFF;
   --gray: #F5F5F5;
   --light-gray: #E0E0E0;
   --accent: #00BFFF; /* Blu celeste come colore di accento */
+  --error: #c62828; /* Colore per errori */
 }
 
 body {
@@ -25,138 +25,139 @@ body {
 
 /* Header Nero con Blu Celeste */
 .header {
-    background-color: var(--black);
-    padding: 20px;
-    border-bottom: 2px solid var(--accent);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--black);
+  padding: 20px;
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header .logo a {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .header .logo a:hover {
-    color: var(--accent);
+  color: var(--accent);
 }
 
 .header .nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .header .nav a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-    position: relative;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
 .header .nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .header .nav a:hover {
-    color: var(--accent);
-    transform: translateY(-3px);
+  color: var(--accent);
+  transform: translateY(-3px);
 }
 
 .header .nav a:hover::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .header .nav .search-icon {
-    width: 20px;
-    height: 20px;
-    fill: var(--white);
-    transition: fill 0.3s ease;
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+  transition: fill 0.3s ease;
 }
 
 .header .nav .search-icon:hover {
-    fill: var(--accent);
+  fill: var(--accent);
 }
 
 .header .nav .signup-btn {
-    background-color: var(--accent);
-    color: var(--white);
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .header .nav .signup-btn:hover {
-    background-color: var(--white);
-    color: var(--black);
-    transform: translateY(-3px);
+  background-color: var(--white);
+  color: var(--black);
+  transform: translateY(-3px);
 }
 
 .header .nav .btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .header .nav .btn-outline-danger {
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    background-color: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background-color: transparent;
 }
 
 .header .nav .btn-outline-danger:hover {
-    background-color: var(--accent);
-    color: var(--white);
+  background-color: var(--accent);
+  color: var(--white);
 }
 
 .header .nav .btn-outline-secondary {
-    border: 1px solid var(--white);
-    color: var(--white);
-    background-color: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+  background-color: transparent;
 }
 
 .header .nav .btn-outline-secondary:hover {
-    background-color: var(--white);
-    color: var(--black);
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .header .nav .text {
-    color: var(--white);
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--white);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .header .nav .text:hover {
-    color: var(--accent);
+  color: var(--accent);
 }
 
+/* Barra di navigazione */
 nav {
   background-color: var(--black);
   padding: 10px;
@@ -289,16 +290,16 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
   height: auto;
-  max-height: 200px; /* Limita l'altezza massima */
-  overflow: hidden; /* Evita fuoriuscite */
-}
-.card-image img {
-  width: 100%;
-  height: 250px;   /* Altezza fissa */
-  object-fit: cover; /* Ritaglia l'immagine per riempire lo spazio */
-  border-radius: 10px; /* Aggiunge angoli arrotondati (opzionale) */
+  max-height: 200px;
+  overflow: hidden;
 }
 
+.card-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
 .card:hover .card-image img {
   transform: scale(1.1);
@@ -319,7 +320,6 @@ nav a:hover::after {
   margin-bottom: 10px;
   padding: 10px;
   background-color: var(--white);
-  /* border: 1px solid var(--light-gray); */
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 800px;
@@ -362,7 +362,9 @@ nav a:hover::after {
 }
 
 /* Sidebar */
-.about, .recent-posts, .archives {
+.about,
+.recent-posts,
+.archives {
   margin-bottom: 40px;
   padding: 20px;
   background-color: var(--white);
@@ -416,7 +418,7 @@ footer a:hover {
   color: var(--accent);
 }
 
-
+/* Login */
 .login-container {
   max-width: 400px;
   margin: 50px auto;
@@ -438,7 +440,7 @@ footer a:hover {
 
 .alert.error {
   background-color: #ffebee;
-  color: #c62828;
+  color: var(--error);
 }
 
 .alert.warning {
@@ -468,7 +470,15 @@ footer a:hover {
   gap: 15px;
 }
 
+/* Form Group (unificato) */
 .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group p {
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -477,12 +487,14 @@ footer a:hover {
 .form-group label {
   font-weight: bold;
   color: var(--black);
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea {
   padding: 10px;
   border: 1px solid var(--light-gray);
   border-radius: 5px;
@@ -490,9 +502,21 @@ footer a:hover {
   transition: border-color 0.3s ease;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   border-color: var(--accent);
   outline: none;
+}
+
+/* Testo di aiuto ed errori */
+.form-help-text {
+  color: var(--light-gray);
+  font-size: 0.9rem;
+}
+
+.form-error-text {
+  color: var(--error);
+  font-size: 0.9rem;
 }
 
 .submit-button {
@@ -531,7 +555,8 @@ footer a:hover {
 .additional-links .link:hover {
   color: var(--black);
 }
-/* Contenitore principale del profilo */
+
+/* Profilo */
 .profile-container {
   max-width: 800px;
   margin: 50px auto;
@@ -542,7 +567,6 @@ footer a:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Titolo del profilo */
 .profile-title {
   font-size: 2rem;
   color: var(--black);
@@ -564,14 +588,12 @@ footer a:hover {
   background-color: var(--accent);
 }
 
-/* Dettagli del profilo */
 .profile-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Informazioni del profilo */
 .profile-info {
   display: flex;
   flex-direction: column;
@@ -604,7 +626,6 @@ footer a:hover {
   color: var(--black);
 }
 
-/* Azioni del profilo */
 .profile-actions {
   display: flex;
   flex-direction: column;
@@ -612,7 +633,6 @@ footer a:hover {
   margin-top: 20px;
 }
 
-/* Form di logout */
 .logout-form {
   text-align: center;
 }
@@ -633,7 +653,6 @@ footer a:hover {
   transform: translateY(-3px);
 }
 
-/* Link di azione */
 .action-links {
   display: flex;
   justify-content: center;
@@ -656,7 +675,8 @@ footer a:hover {
   color: var(--white);
   transform: translateY(-3px);
 }
-/* Contenitore principale per il cambio password */
+
+/* Cambio Password */
 .password-change-container {
   max-width: 600px;
   margin: 50px auto;
@@ -667,7 +687,6 @@ footer a:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Titolo del modulo */
 .password-change-title {
   font-size: 2rem;
   color: var(--black);
@@ -689,47 +708,12 @@ footer a:hover {
   background-color: var(--accent);
 }
 
-/* Form di cambio password */
 .password-change-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Gruppo di campi del form */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.form-group p {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.form-group label {
-  font-weight: bold;
-  color: var(--black);
-  font-size: 1.1rem;
-}
-
-.form-group input {
-  padding: 10px;
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus {
-  border-color: var(--accent);
-  outline: none;
-}
-
-/* Pulsante di cambio password */
 .btn-change-password {
   background-color: var(--accent);
   color: var(--white);
@@ -746,66 +730,9 @@ footer a:hover {
   background-color: var(--black);
   transform: translateY(-3px);
 }
-/* Contenitore principale per la conferma del reset della password */
-.password-reset-success-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: var(--gray);
-}
 
-/* Card di conferma */
-.password-reset-success-card {
-  background-color: var(--white);
-  border: 1px solid var(--light-gray);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Contenuto della card */
-.card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Titolo di successo */
-.success-title {
-  font-size: 1.5rem;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* Messaggio di successo */
-.success-message {
-  font-size: 1rem;
-  color: var(--black);
-  margin-bottom: 20px;
-}
-
-/* Pulsante per il login */
-.btn-login {
-  background-color: var(--accent);
-  color: var(--white);
-  padding: 12px 24px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-login:hover {
-  background-color: var(--black);
-  transform: translateY(-3px);
-}
-/* Contenitore principale per la conferma del cambio password */
+/* Conferma Cambio Password / Reset Password */
+.password-reset-success-container,
 .password-change-success-container {
   display: flex;
   justify-content: center;
@@ -814,7 +741,7 @@ footer a:hover {
   background-color: var(--gray);
 }
 
-/* Card di conferma */
+.password-reset-success-card,
 .password-change-success-card {
   background-color: var(--white);
   border: 1px solid var(--light-gray);
@@ -826,21 +753,24 @@ footer a:hover {
   text-align: center;
 }
 
-/* Titolo di successo */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .success-title {
   font-size: 1.5rem;
   color: var(--accent);
   margin-bottom: 10px;
 }
 
-/* Messaggio di successo */
 .success-message {
   font-size: 1rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Pulsante per il login */
 .btn-login {
   background-color: var(--accent);
   color: var(--white);
@@ -857,7 +787,8 @@ footer a:hover {
   background-color: var(--black);
   transform: translateY(-3px);
 }
-/* Contenitore principale per la modifica del profilo */
+
+/* Modifica Profilo */
 .profile-edit-container {
   max-width: 800px;
   margin: 50px auto;
@@ -868,7 +799,6 @@ footer a:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Titolo della pagina */
 .profile-edit-title {
   font-size: 2rem;
   color: var(--black);
@@ -890,16 +820,8 @@ footer a:hover {
   background-color: var(--accent);
 }
 
-/* Messaggi di notifica */
 .messages {
   margin-bottom: 20px;
-}
-
-.alert {
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-size: 1rem;
 }
 
 .alert-success {
@@ -909,7 +831,7 @@ footer a:hover {
 
 .alert-error {
   background-color: #ffebee;
-  color: #c62828;
+  color: var(--error);
 }
 
 .alert-prime {
@@ -917,53 +839,12 @@ footer a:hover {
   color: var(--black);
 }
 
-/* Form di modifica profilo */
 .profile-edit-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Gruppo di campi del form */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.form-group label {
-  font-weight: bold;
-  color: var(--black);
-  font-size: 1.1rem;
-}
-
-.form-group input,
-.form-group textarea {
-  padding: 10px;
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--accent);
-  outline: none;
-}
-
-/* Testo di aiuto ed errori */
-.form-help-text {
-  color: var(--light-gray);
-  font-size: 0.9rem;
-}
-
-.form-error-text {
-  color: #c62828;
-  font-size: 0.9rem;
-}
-
-/* Pulsante di invio */
 .btn-submit {
   background-color: var(--accent);
   color: var(--white);
@@ -979,7 +860,8 @@ footer a:hover {
   background-color: var(--black);
   transform: translateY(-3px);
 }
-/* Contenitore principale per il logout */
+
+/* Logout */
 .logout-container {
   display: flex;
   justify-content: center;
@@ -988,7 +870,6 @@ footer a:hover {
   background-color: var(--gray);
 }
 
-/* Card di logout */
 .logout-card {
   background-color: var(--white);
   border: 1px solid var(--light-gray);
@@ -1000,38 +881,19 @@ footer a:hover {
   text-align: center;
 }
 
-/* Titolo del logout */
 .logout-title {
   font-size: 2rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Messaggio di logout */
 .logout-message {
   font-size: 1rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Pulsante per il login */
-.btn-login {
-  background-color: var(--accent);
-  color: var(--white);
-  padding: 12px 24px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-login:hover {
-  background-color: var(--black);
-  transform: translateY(-3px);
-}
-/* Contenitore principale per il reset della password */
+/* Reset Password */
 .password-reset-container {
   display: flex;
   justify-content: center;
@@ -1040,7 +902,6 @@ footer a:hover {
   background-color: var(--gray);
 }
 
-/* Card di reset della password */
 .password-reset-card {
   background-color: var(--white);
   border: 1px solid var(--light-gray);
@@ -1052,77 +913,25 @@ footer a:hover {
   text-align: center;
 }
 
-/* Titolo del reset della password */
 .password-reset-title {
   font-size: 1.5rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Messaggio del reset della password */
 .password-reset-message {
   font-size: 1rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Form di reset della password */
 .password-reset-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Gruppo di campi del form */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.form-group p {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.form-group label {
-  font-weight: bold;
-  color: var(--black);
-  font-size: 1.1rem;
-}
-
-.form-group input {
-  padding: 10px;
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus {
-  border-color: var(--accent);
-  outline: none;
-}
-
-/* Pulsante di cambio password */
-.btn-change-password {
-  background-color: var(--accent);
-  color: var(--white);
-  padding: 12px 24px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-change-password:hover {
-  background-color: var(--black);
-  transform: translateY(-3px);
-}
-/* Contenitore principale per la conferma dell'invio dell'email */
+/* Reset Password Email */
 .password-reset-email-container {
   display: flex;
   justify-content: center;
@@ -1131,7 +940,6 @@ footer a:hover {
   background-color: var(--gray);
 }
 
-/* Card di conferma */
 .password-reset-email-card {
   background-color: var(--white);
   border: 1px solid var(--light-gray);
@@ -1143,27 +951,25 @@ footer a:hover {
   text-align: center;
 }
 
-/* Titolo della conferma */
 .password-reset-email-title {
   font-size: 1.5rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Messaggio principale */
 .password-reset-email-message {
   font-size: 1rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Nota aggiuntiva */
 .password-reset-email-note {
   font-size: 0.9rem;
   color: var(--black);
   font-style: italic;
 }
-/* Contenitore principale per la richiesta di reset della password */
+
+/* Reset Password Request */
 .password-reset-request-container {
   display: flex;
   justify-content: center;
@@ -1172,7 +978,6 @@ footer a:hover {
   background-color: var(--gray);
 }
 
-/* Card di richiesta di reset della password */
 .password-reset-request-card {
   background-color: var(--white);
   border: 1px solid var(--light-gray);
@@ -1184,61 +989,24 @@ footer a:hover {
   text-align: center;
 }
 
-/* Titolo della richiesta di reset della password */
 .password-reset-request-title {
   font-size: 1.5rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Messaggio della richiesta di reset della password */
 .password-reset-request-message {
   font-size: 1rem;
   color: var(--black);
   margin-bottom: 20px;
 }
 
-/* Form di richiesta di reset della password */
 .password-reset-request-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Gruppo di campi del form */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.form-group p {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.form-group label {
-  font-weight: bold;
-  color: var(--black);
-  font-size: 1.1rem;
-}
-
-.form-group input {
-  padding: 10px;
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus {
-  border-color: var(--accent);
-  outline: none;
-}
-
-/* Pulsante di invio */
 .btn-reset-password {
   background-color: var(--accent);
   color: var(--white);
@@ -1254,367 +1022,193 @@ footer a:hover {
   background-color: var(--black);
   transform: translateY(-3px);
 }
-/* Contenitore principale per la registrazione */
+
+/* Registrazione */
 .registration-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Copre l'intera altezza della viewport */
-  background-color: var(--gray); /* Sfondo grigio chiaro */
+  min-height: 100vh;
+  background-color: var(--gray);
   padding: 20px;
 }
 
-/* Card di registrazione */
 .registration-card {
-  background-color: var(--white); /* Sfondo bianco */
-  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
-  border-radius: 15px; /* Bordi arrotondati */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  max-width: 400px; /* Larghezza massima della card */
-  width: 100%; /* Adatta la larghezza al contenitore */
-  text-align: center; /* Allinea il testo al centro */
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
-/* Titolo della registrazione */
 .registration-title {
-  font-size: 1.8rem; /* Dimensione del titolo */
-  color: var(--black); /* Colore del testo */
-  margin-bottom: 20px; /* Spaziatura inferiore */
-  text-transform: uppercase; /* Testo in maiuscolo */
-  letter-spacing: 2px; /* Spaziatura tra le lettere */
+  font-size: 1.8rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Messaggi di errore */
 .form-errors {
-  background-color: #ffebee; /* Sfondo rosso chiaro */
-  color: var(--error); /* Colore del testo */
+  background-color: #ffebee;
+  color: var(--error);
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
 
-/* Form di registrazione */
 .registration-form {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Spaziatura tra gli elementi */
+  gap: 20px;
 }
 
-/* Gruppo di campi del form */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px; /* Spaziatura tra label e input */
-}
-
-.form-group label {
-  font-weight: bold; /* Etichette in grassetto */
-  color: var(--black); /* Colore del testo */
-  font-size: 1rem;
-}
-
-.form-group input {
-  padding: 10px;
-  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
-  border-radius: 5px; /* Bordi arrotondati */
-  font-size: 1rem;
-  transition: border-color 0.3s ease; /* Transizione fluida */
-}
-
-.form-group input:focus {
-  border-color: var(--accent); /* Cambia colore del bordo al focus */
-  outline: none; /* Rimuove l'outline predefinito */
-}
-
-/* Testo di aiuto */
-.form-help-text {
-  color: var(--light-gray); /* Colore grigio chiaro */
-  font-size: 0.9rem;
-}
-
-/* Messaggi di errore */
-.form-error-text {
-  color: var(--error); /* Colore rosso */
-  font-size: 0.9rem;
-}
-
-/* Pulsante di registrazione */
 .btn-register {
-  background-color: var(--accent); /* Sfondo blu celeste */
-  color: var(--white); /* Colore del testo */
+  background-color: var(--accent);
+  color: var(--white);
   padding: 12px 24px;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transizioni fluide */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-register:hover {
-  background-color: var(--black); /* Cambia colore al passaggio del mouse */
-  transform: translateY(-3px); /* Effetto di sollevamento */
+  background-color: var(--black);
+  transform: translateY(-3px);
 }
-/* Contenitore principale */
 
 /* Griglia principale */
 .row {
   display: flex;
-  gap: 20px; /* Spaziatura tra le colonne */
-  flex-wrap: wrap; /* Permette il wrapping su schermi piccoli */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Sezione degli articoli */
 .section-articles {
-  flex: 3; /* Occupa 3 parti dello spazio disponibile */
-  background-color: var(--white); /* Sfondo bianco */
-  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
-  border-radius: 15px; /* Bordi arrotondati */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  flex: 3;
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
-/* Sidebar */
 .sidebar {
-  flex: 1; /* Occupa 1 parte dello spazio disponibile */
-  background-color: var(--white); /* Sfondo bianco */
-  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
-  border-radius: 15px; /* Bordi arrotondati */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  flex: 1;
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
-/* Titoli delle sezioni */
 .section-title {
-  font-size: 1.5rem; /* Dimensione del titolo */
-  color: var(--black); /* Colore del testo */
-  margin-bottom: 20px; /* Spaziatura inferiore */
-  text-transform: uppercase; /* Testo in maiuscolo */
-  letter-spacing: 2px; /* Spaziatura tra le lettere */
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Articoli */
 .article {
-  margin-bottom: 20px; /* Spaziatura tra gli articoli */
+  margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--light-gray); /* Linea divisoria */
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .article:last-child {
-  border-bottom: none; /* Rimuove la linea divisoria per l'ultimo articolo */
+  border-bottom: none;
 }
 
 .article h3 {
-  font-size: 1.2rem; /* Dimensione del titolo dell'articolo */
-  color: var(--black); /* Colore del testo */
-  margin-bottom: 10px; /* Spaziatura inferiore */
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-bottom: 10px;
 }
 
 .article p {
-  font-size: 1rem; /* Dimensione del testo */
-  color: var(--black); /* Colore del testo */
-  line-height: 1.6; /* Altezza della linea */
+  font-size: 1rem;
+  color: var(--black);
+  line-height: 1.6;
 }
 
-/* Link degli articoli */
 .article a {
-  color: var(--accent); /* Colore del link */
-  text-decoration: none; /* Rimuove la sottolineatura */
-  transition: color 0.3s ease; /* Transizione fluida */
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .article a:hover {
-  color: var(--black); /* Cambia colore al passaggio del mouse */
+  color: var(--black);
 }
 
-/* Widget della sidebar */
 .sidebar-widget {
-  margin-bottom: 20px; /* Spaziatura tra i widget */
+  margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--light-gray); /* Linea divisoria */
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .sidebar-widget:last-child {
-  border-bottom: none; /* Rimuove la linea divisoria per l'ultimo widget */
+  border-bottom: none;
 }
 
 .sidebar-widget h4 {
-  font-size: 1.2rem; /* Dimensione del titolo del widget */
-  color: var(--black); /* Colore del testo */
-  margin-bottom: 10px; /* Spaziatura inferiore */
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-bottom: 10px;
 }
 
 .sidebar-widget ul {
-  list-style: none; /* Rimuove i punti dell'elenco */
+  list-style: none;
   padding: 0;
 }
 
 .sidebar-widget ul li {
-  margin-bottom: 10px; /* Spaziatura tra gli elementi */
+  margin-bottom: 10px;
 }
 
 .sidebar-widget ul li a {
-  color: var(--black); /* Colore del link */
-  text-decoration: none; /* Rimuove la sottolineatura */
-  transition: color 0.3s ease; /* Transizione fluida */
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .sidebar-widget ul li a:hover {
-  color: var(--accent); /* Cambia colore al passaggio del mouse */
+  color: var(--accent);
 }
-/* Contenitore principale per il dettaglio dell'articolo */
+
+/* Dettaglio Articolo */
 .article-detail-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Copre l'intera altezza della viewport */
-  background-color: var(--gray); /* Sfondo grigio chiaro */
+  min-height: 100vh;
+  background-color: var(--gray);
   padding: 20px;
 }
 
-/* Card di dettaglio dell'articolo */
 .article-detail-card {
-  background-color: var(--white); /* Sfondo bianco */
-  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
-  border-radius: 15px; /* Bordi arrotondati */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  max-width: 800px; /* Larghezza massima della card */
-  width: 100%; /* Adatta la larghezza al contenitore */
+  max-width: 800px;
+  width: 100%;
 }
 
-/* Titolo dell'articolo */
 .article-title {
-  font-size: 2rem; /* Dimensione del titolo */
-  color: var(--black); /* Colore del testo */
-  margin-bottom: 20px; /* Spaziatura inferiore */
-  text-transform: uppercase; /* Testo in maiuscolo */
-  letter-spacing: 2px; /* Spaziatura tra le lettere */
-}
-
-/* Corpo dell'articolo */
-.article-body {
-  font-size: 1.1rem; /* Dimensione del testo */
-  color: var(--black); /* Colore del testo */
-  line-height: 1.6; /* Altezza della linea */
-  margin-bottom: 20px; /* Spaziatura inferiore */
-}
-
-/* Metadati dell'articolo */
-.article-meta {
-  font-size: 1rem; /* Dimensione del testo */
-  color: var(--black); /* Colore del testo */
-  margin-top: 20px; /* Spaziatura superiore */
-}
-
-.article-author,
-.article-published {
-  margin-bottom: 10px; /* Spaziatura tra gli elementi */
-}
-
-.article-author span,
-.article-published span {
-  font-weight: bold; /* Testo in grassetto */
-  color: var(--accent); /* Colore blu celeste */
-}
-
-/* Sezione degli articoli */
-.article-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Spaziatura tra gli articoli */
-}
-
-/* Card dell'articolo */
-.article-card {
-  background-color: var(--white); /* Sfondo bianco */
-  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
-  border-radius: 15px; /* Bordi arrotondati */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione fluida */
-}
-
-.article-card:hover {
-  transform: translateY(-5px); /* Effetto di sollevamento */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
-}
-
-/* Titolo dell'articolo */
-.article-title {
-  font-size: 1.5rem; /* Dimensione del titolo */
-  color: var(--black); /* Colore del testo */
-  margin-bottom: 10px; /* Spaziatura inferiore */
-}
-
-.article-title a {
-  color: var(--black); /* Colore del link */
-  text-decoration: none; /* Rimuove la sottolineatura */
-  transition: color 0.3s ease; /* Transizione fluida */
-}
-
-.article-title a:hover {
-  color: var(--accent); /* Cambia colore al passaggio del mouse */
-}
-
-/* Corpo dell'articolo */
-.article-body {
-  font-size: 1rem; /* Dimensione del testo */
-  color: var(--black); /* Colore del testo */
-  line-height: 1.6; /* Altezza della linea */
-  margin-bottom: 10px; /* Spaziatura inferiore */
-}
-
-/* Metadati dell'articolo */
-.article-meta {
-  font-size: 0.9rem; /* Dimensione del testo */
-  color: var(--black); /* Colore del testo */
-  margin-top: 10px; /* Spaziatura superiore */
-}
-
-.article-meta span {
-  font-weight: bold; /* Testo in grassetto */
-  color: var(--accent); /* Colore blu celeste */
-}
-
-.article-image {
-  width: 100%;      /* L'immagine si adatta alla larghezza della card */
-  height: auto;     /* Mantiene le proporzioni senza distorsioni */
-  max-height: 400px; /* Imposta un'altezza massima */
-  object-fit: contain; /* L'immagine si adatta senza tagliarsi */
-  display: block;   /* Evita spazi bianchi sotto l'immagine */
-  margin: 0 auto;   /* Centra l'immagine */
-  border-radius: 10px; /* Angoli arrotondati (opzionale) */
-}
-/* Contenitore principale per il dettaglio dell'articolo */
-.article-detail-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Copre l'intera altezza della viewport */
-  background-color: var(--gray); /* Sfondo grigio chiaro */
-  padding: 20px;
-}
-
-/* Card di dettaglio dell'articolo */
-.article-detail-card {
-  background-color: var(--white); /* Sfondo bianco */
-  border: 1px solid var(--light-gray); /* Bordo grigio chiaro */
-  border-radius: 15px; /* Bordi arrotondati */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-  padding: 30px;
-  max-width: 800px; /* Larghezza massima della card */
-  width: 100%; /* Adatta la larghezza al contenitore */
-}
-
-/* Titolo dell'articolo */
-.article-title {
-  font-size: 2rem; /* Dimensione del titolo */
-  color: var(--black); /* Colore del testo */
-  margin-bottom: 20px; /* Spaziatura inferiore */
-  text-transform: uppercase; /* Testo in maiuscolo */
-  letter-spacing: 2px; /* Spaziatura tra le lettere */
+  font-size: 2rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   position: relative;
 }
 
@@ -1626,72 +1220,80 @@ footer a:hover {
   transform: translateX(-50%);
   width: 50px;
   height: 3px;
-  background-color: var(--accent); /* Blu celeste come accento */
+  background-color: var(--accent);
 }
 
-/* Immagine dell'articolo */
 .article-image {
-  width: 100%; /* L'immagine si adatta alla larghezza della card */
-  height: auto; /* Mantiene le proporzioni senza distorsioni */
-  max-height: 400px; /* Imposta un'altezza massima */
-  object-fit: contain; /* L'immagine si adatta senza tagliarsi */
-  display: block; /* Evita spazi bianchi sotto l'immagine */
-  margin: 20px auto; /* Centra l'immagine */
-  border-radius: 10px; /* Angoli arrotondati */
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
 }
 
-/* Corpo dell'articolo */
 .article-body {
-  font-size: 1.1rem; /* Dimensione del testo */
-  color: var(--black); /* Colore del testo */
-  line-height: 1.6; /* Altezza della linea */
-  margin-bottom: 20px; /* Spaziatura inferiore */
+  font-size: 1.1rem;
+  color: var(--black);
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-/* Metadati dell'articolo */
 .article-meta {
-  font-size: 1rem; /* Dimensione del testo */
-  color: var(--black); /* Colore del testo */
-  margin-top: 20px; /* Spaziatura superiore */
+  font-size: 1rem;
+  color: var(--black);
+  margin-top: 20px;
 }
 
 .article-author,
 .article-published {
-  margin-bottom: 10px; /* Spaziatura tra gli elementi */
+  margin-bottom: 10px;
 }
 
 .article-author span,
 .article-published span {
-  font-weight: bold; /* Testo in grassetto */
-  color: var(--accent); /* Colore blu celeste */
+  font-weight: bold;
+  color: var(--accent);
 }
 
-/* Sezione Like/Dislike */
+/* Like/Dislike (unificato per lista e dettaglio) */
 .article-likes,
 .article-dislikes {
   margin: 10px 0;
   font-size: 1rem;
   color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.article-likes a,
-.article-dislikes a {
-  color: var(--accent);
-  text-decoration: none;
+.article-likes span,
+.article-dislikes span {
   font-weight: bold;
-  margin-left: 10px;
-  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.article-likes a:hover,
-.article-dislikes a:hover {
-  color: var(--black);
+.article-likes button,
+.article-dislikes button {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.article-likes button:hover,
+.article-dislikes button:hover {
+  background-color: var(--black);
   transform: translateY(-2px);
-  display: inline-block;
 }
 
-/* Sezione Commenti */
-h3 {
+/* Commenti (unificato per lista e dettaglio) */
+h3,
+h4 {
   font-size: 1.5rem;
   color: var(--black);
   margin-bottom: 20px;
@@ -1700,7 +1302,8 @@ h3 {
   position: relative;
 }
 
-h3::after {
+h3::after,
+h4::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -1708,6 +1311,10 @@ h3::after {
   width: 30px;
   height: 2px;
   background-color: var(--accent);
+}
+
+.comments-section {
+  margin-bottom: 20px;
 }
 
 .comment {
@@ -1734,7 +1341,7 @@ h3::after {
 }
 
 /* Form per aggiungere commenti */
-form {
+form.comment-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -1771,7 +1378,6 @@ button[type="submit"]:hover {
   transform: translateY(-3px);
 }
 
-/* Link per il login */
 form p a {
   color: var(--accent);
   text-decoration: none;
@@ -1781,4 +1387,237 @@ form p a {
 
 form p a:hover {
   color: var(--black);
+}
+/* Stile per il form di ricerca */
+.search-form {
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Input di ricerca */
+.search-input {
+  padding: 10px 40px 10px 15px; /* Spazio per l'icona a destra */
+  border: none;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  background-color: transparent;
+  color: var(--black);
+  width: 150px; /* Larghezza iniziale */
+  transition: width 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--light-gray);
+  opacity: 0.8;
+}
+
+.search-input:focus {
+  width: 200px; /* Espansione al focus */
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.5); /* Ombra celeste */
+}
+
+/* Pulsante di ricerca */
+.search-btn {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+/* Icona di ricerca */
+.search-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--white); /* Colore iniziale in linea con il tema */
+  transition: stroke 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover e Focus combinati */
+.search-container:hover {
+  border-color: var(--accent);
+}
+
+.search-container:hover .search-icon,
+.search-input:focus + .search-btn .search-icon {
+  stroke: var(--accent);
+  transform: scale(1.1); /* Lieve ingrandimento dell'icona */
+}
+
+.search-btn:hover .search-icon {
+  transform: scale(1.2) rotate(10deg); /* Rotazione leggera per un tocco dinamico */
+}
+
+/* Inserimento nel contesto del header (se necessario) */
+.header .nav .search-form {
+  margin-left: 20px; /* Spaziatura nel contesto della navigazione */
+}
+/* Sezione di ricerca */
+.search-section {
+  padding: 40px 20px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Form di ricerca */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Per schermi più piccoli */
+  gap: 15px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--gray);
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  transition: all 0.3s ease;
+}
+
+.search-container:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3); /* Ombra celeste */
+}
+
+/* Input di testo */
+.search-input {
+  padding: 10px 15px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  background-color: var(--white);
+  color: var(--black);
+  width: 200px;
+  transition: width 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--light-gray);
+  opacity: 0.8;
+}
+
+.search-input:focus {
+  width: 250px; /* Espansione al focus */
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+}
+
+/* Menu a tendina */
+.search-select {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  background-color: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-select:focus {
+  border-color: var(--accent);
+  outline: none;
+  transform: scale(1.02); /* Leggero ingrandimento */
+}
+
+/* Pulsante di ricerca */
+.search-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: var(--black);
+  transform: translateY(-3px);
+}
+
+.search-btn .search-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--white);
+  transition: transform 0.3s ease;
+}
+
+.search-btn:hover .search-icon {
+  transform: scale(1.1) rotate(10deg); /* Animazione dell'icona */
+}
+
+/* Anteprima articoli */
+.article-preview {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-preview:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.article-preview h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.article-preview h2 a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-preview h2 a:hover {
+  color: var(--accent);
+}
+
+.article-preview p {
+  font-size: 1rem;
+  color: var(--black);
+}
+
+/* Nessun risultato */
+.no-results {
+  font-size: 1.2rem;
+  color: var(--black);
+  text-align: center;
+  padding: 20px;
 }

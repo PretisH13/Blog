@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-from django.db.models import CASCADE
+from django.db.models import CASCADE, Q
 from django.urls import reverse
 
 
@@ -53,6 +53,18 @@ class Articles(models.Model):
     @property
     def total_dislikes(self):
         return self.dislikes.count()
+    
+    @classmethod
+    def search(cls, query, category=None, status=None):
+        queryset = cls.objects.all()
+        if query:
+            queryset = queryset.filter(
+                Q(title__icontains=query) | Q(body__icontains=query))
+        if category:
+                queryset = queryset.filter(category=category)
+        if status:
+                queryset = queryset.filter(status=status)
+        return queryset
 
 class Comment(models.Model):
     article = models.ForeignKey(Articles, on_delete=CASCADE, related_name='comments')
@@ -66,3 +78,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author} on {self.article}"
+    
