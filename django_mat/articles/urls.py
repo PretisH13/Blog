@@ -26,5 +26,6 @@ urlpatterns = [
     path('<slug:slug>/like/', views.like_article, name='like-article'),
     path('<slug:slug>/dislike/', views.dislike_article, name='dislike-article'),
     path('<slug:slug>/comment/', views.add_comment, name='add-comment'),
+    
 
 ]

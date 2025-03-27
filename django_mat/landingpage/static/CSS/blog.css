@@ -1621,3 +1621,65 @@ form p a:hover {
   text-align: center;
   padding: 20px;
 }
+.widget-content {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+}
+.social-links {
+  list-style: none;
+  padding: 0;
+}
+.social-links li {
+  margin: 10px 0;
+}
+.social-links a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.social-links a:hover {
+  color: #007bff;
+}
+.social-links i {
+  margin-right: 8px;
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+.social-links .fa-facebook-f {
+  color: #3b5998; /* Colore di Facebook */
+}
+.social-links .fa-twitter {
+  color: #1da1f2; /* Colore di Twitter */
+}
+.social-links .fa-instagram {
+  color: #e1306c; /* Colore di Instagram */
+}
+.widget-content {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+}
+.social-links {
+  list-style: none;
+  padding: 0;
+}
+.social-links li {
+  margin: 10px 0;
+}
+.social-links a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.social-links a:hover {
+  color: #007bff;
+}
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
