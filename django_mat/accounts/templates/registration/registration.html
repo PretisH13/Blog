@@ -1,15 +1,16 @@
 {% extends "landingpage/base.html" %}
+{% load i18n %}
 
 {% block page_content %}
 
 <div class="registration-container">
     <div class="registration-card">
-        <h2 class="registration-title">Registration</h2>
+        <h2 class="registration-title">{% trans "Registration" %}</h2>
 
         <!-- Gestione degli errori del form -->
         {% if form.errors %}
         <div class="form-errors">
-            <p>Your username and password do not match. Please try again.</p>
+            <p>{% trans "Your username and password do not match. Please try again." %}</p>
         </div>
         {% endif %}
 
@@ -32,7 +33,7 @@
             {% endfor %}
 
             <!-- Pulsante di invio -->
-            <button type="submit" class="btn-register">Register</button>
+            <button type="submit" class="btn-register">{% trans "Register" %}</button>
         </form>
     </div>
 </div>

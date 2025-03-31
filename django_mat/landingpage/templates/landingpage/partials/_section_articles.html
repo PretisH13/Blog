@@ -1,7 +1,7 @@
-
+{% load i18n %}
 <div class="container">
   <div>
-    <h3>Latest articles added</h3>
+    <h3>{% trans "Latest articles added" %}</h3>
 
     {% for article in page_obj %}
       <div class="blog-post">
@@ -15,42 +15,42 @@
 
           <!-- Like/Dislike -->
           <p class="article-likes">
-            Likes: <span id="likes-count-{{ article.slug }}">{{ article.total_likes }}</span>
+            {% trans "Likes" %}: <span id="likes-count-{{ article.slug }}">{{ article.total_likes }}</span>
             {% if user.is_authenticated %}
-              <button class="like-button" data-slug="{{ article.slug }}">Like</button>
+              <button class="like-button" data-slug="{{ article.slug }}">{% trans "Like" %}</button>
             {% endif %}
           </p>
           <p class="article-dislikes">
-            Dislikes: <span id="dislikes-count-{{ article.slug }}">{{ article.total_dislikes }}</span>
+            {% trans "Dislikes" %}: <span id="dislikes-count-{{ article.slug }}">{{ article.total_dislikes }}</span>
             {% if user.is_authenticated %}
-              <button class="dislike-button" data-slug="{{ article.slug }}">Dislike</button>
+              <button class="dislike-button" data-slug="{{ article.slug }}">{% trans "Dislike" %}</button>
             {% endif %}
           </p>
 
           <!-- Comments -->
-          <h4>Comments</h4>
+          <h4>{% trans "Comments" %}</h4>
           <div class="comments-section" data-article-slug="{{ article.slug }}">
             {% for comment in article.comments.all|slice:":3" %}
               <div class="comment">
                 <p><span>{{ comment.author }}</span> ({{ comment.created|date }}): {{ comment.body }}</p>
               </div>
             {% empty %}
-              <p>No comments yet.</p>
+              <p>{% trans "No comments yet." %}</p>
             {% endfor %}
             {% if article.comments.count > 3 %}
-              <p><a href="{{ article.get_absolute_url }}#comments">See all {{ article.comments.count }} comments</a></p>
+              <p><a href="{{ article.get_absolute_url }}#comments">{% trans "See all" %} {{ article.comments.count }} {% trans "comments" %}</a></p>
             {% endif %}
           </div>
     
-          <!-- Add Comment (non modificato, come richiesto) -->
+          <!-- Add Comment -->
           {% if user.is_authenticated %}
             <form method="post" action="{% url 'articles:add-comment' article.slug %}" class="comment-form">
               {% csrf_token %}
-              <textarea name="body" rows="2" placeholder="Add a comment..."></textarea>
-              <button type="submit">Post Comment</button>
+              <textarea name="body" rows="2" placeholder="{% trans 'Add a comment...' %}"></textarea>
+              <button type="submit">{% trans "Post Comment" %}</button>
             </form>
           {% else %}
-            <p><a href="{% url 'login' %}">Log in</a> to add a comment.</p>
+            <p><a href="{% url 'login' %}">{% trans "Log in" %}</a> {% trans "to add a comment." %}</p>
           {% endif %}
         </article>
       </div>

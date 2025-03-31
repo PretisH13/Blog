@@ -126,3 +126,41 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCommentForms();
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const select = document.querySelector('.language-form select');
+    const toggle = document.querySelector('.language-toggle');
+    const form = document.querySelector('.language-form');
+
+    // Creare un selettore personalizzato
+    const customSelect = document.createElement('div');
+    customSelect.className = 'custom-select';
+    form.appendChild(customSelect);
+
+    // Nascondere il selettore nativo
+    select.style.display = 'none';
+
+    // Creare le opzioni personalizzate con bandiere
+    Array.from(select.options).forEach(option => {
+        const flagCode = option.getAttribute('data-flag');
+        const customOption = document.createElement('div');
+        customOption.className = 'custom-option';
+        customOption.innerHTML = `<span class="fi fi-${flagCode}"></span> ${option.text}`;
+        customOption.dataset.value = option.value;
+        customSelect.appendChild(customOption);
+
+        // Aggiungere evento click
+        customOption.addEventListener('click', () => {
+            select.value = option.value;
+            select.dispatchEvent(new Event('change'));
+        });
+    });
+
+    // Mostrare la bandiera della lingua selezionata nel pulsante
+    const updateToggleFlag = () => {
+        const selectedOption = select.options[select.selectedIndex];
+        const flagCode = selectedOption.getAttribute('data-flag');
+        toggle.innerHTML = `<span class="fi fi-${flagCode}"></span>`;
+    };
+    updateToggleFlag();
+    select.addEventListener('change', updateToggleFlag);
+});

@@ -1,4 +1,5 @@
 {% extends "landingpage/base.html" %}
+{% load i18n %}
 
 {% block page_content %}
   <div class="login-container">
@@ -6,7 +7,7 @@
     {% if form.errors %}
       <div class="alert error">
         <i class="icon">⚠️</i>
-        <p>Your username and password didn't match. Please try again.</p>
+        <p>{% trans "Your username and password didn't match. Please try again." %}</p>
       </div>
     {% endif %}
 
@@ -15,13 +16,13 @@
         <div class="alert warning">
           <i class="icon">🔒</i>
           <p>
-            Your account doesn't have access to this page. To proceed, please login with an account that has access.
+            {% trans "Your account doesn't have access to this page. To proceed, please login with an account that has access." %}
           </p>
         </div>
       {% else %}
         <div class="alert info">
           <i class="icon">👋</i>
-          <p>Please login to see this page.</p>
+          <p>{% trans "Please login to see this page." %}</p>
         </div>
       {% endif %}
     {% endif %}
@@ -29,24 +30,24 @@
     <!-- Form di login -->
     <form method="post" action="{% url 'accounts:login' %}" class="login-form">
       {% csrf_token %}
-      <h2 class="form-title">Login</h2>
+      <h2 class="form-title">{% trans "Login" %}</h2>
 
       <div class="form-group">
         <label for="{{ form.username.id_for_label }}">
-          <i class="icon">👤</i> Username
+          <i class="icon">👤</i> {% trans "Username" %}
         </label>
         {{ form.username }}
       </div>
 
       <div class="form-group">
         <label for="{{ form.password.id_for_label }}">
-          <i class="icon">🔑</i> Password
+          <i class="icon">🔑</i> {% trans "Password" %}
         </label>
         {{ form.password }}
       </div>
 
       <button type="submit" class="submit-button">
-        <i class="icon">🚀</i> Login
+        <i class="icon">🚀</i> {% trans "Login" %}
       </button>
 
       <input type="hidden" name="next" value="{{ next }}">
@@ -56,12 +57,12 @@
     <div class="additional-links">
       <p>
         <a href="{% url 'accounts:password_reset' %}" class="link">
-          <i class="icon">🔗</i> Lost password?
+          <i class="icon">🔗</i> {% trans "Lost password?" %}
         </a>
       </p>
       <p>
         {% comment %} <a href="#" class="link">
-          <i class="icon">📝</i> Create an account
+          <i class="icon">📝</i> {% trans "Create an account" %}
         </a> {% endcomment %}
       </p>
     </div>

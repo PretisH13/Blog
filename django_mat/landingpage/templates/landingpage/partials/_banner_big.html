@@ -1,9 +1,10 @@
+{% load i18n %}
 <main class="container">
   <div class="featured-post">
     <div class="banner-content">
       <h1>{{ banner.title }}</h1>
       <p>{{ banner.body|truncatechars:100 }}</p>
-      <p><a href="{{ banner.get_absolute_url }}">Continue reading ...</a></p>
+      <p><a href="{{ banner.get_absolute_url }}">{% trans "Continue reading ..." %}</a></p>
     </div>
   </div>
 </main>

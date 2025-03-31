@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="card-container">
   <div class="card">
     <div class="card-content">
@@ -6,7 +7,7 @@
       <div class="date">{{ highlight.published }}</div>
       <p>{{ highlight.body|truncatewords:10 }}</p>
       <a href="{{ highlight.get_absolute_url }}" class="read-more">
-        Continue reading
+        {% trans "Continue reading" %}
         {% comment %} <svg class="icon"><use xlink:href="#chevron-right"/></svg> {% endcomment %}
       </a>
     </div>

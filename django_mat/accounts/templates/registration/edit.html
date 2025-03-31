@@ -1,4 +1,5 @@
 {% extends "landingpage/base.html" %}
+{% load i18n %}
 
 {% block page_content %}
 
@@ -14,12 +15,12 @@
 {% endif %}
 
 <div class="profile-edit-container">
-    <h2 class="profile-edit-title">Edit Your Profile</h2>
+    <h2 class="profile-edit-title">{% trans "Edit Your Profile" %}</h2>
 
     <!-- Gestione degli errori del form -->
     {% if user_form.errors or profile_form.errors %}
     <div class="form-errors">
-        <p>Si sono verificati degli errori. Controlla i dati inseriti.</p>
+        <p>{% trans "Si sono verificati degli errori. Controlla i dati inseriti." %}</p>
     </div>
     {% endif %}
 
@@ -56,7 +57,7 @@
         {% endfor %}
 
         <!-- Pulsante di invio -->
-        <button type="submit" class="btn-submit">Save Changes</button>
+        <button type="submit" class="btn-submit">{% trans "Save Changes" %}</button>
     </form>
 </div>
 

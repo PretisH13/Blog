@@ -1,3 +1,4 @@
+{% load i18n %}
 <nav>
   {% for category_tag, category_display_name in categories %}
       <a href="{% url 'articles:article-list' category_tag %}">{{ category_display_name }}</a>

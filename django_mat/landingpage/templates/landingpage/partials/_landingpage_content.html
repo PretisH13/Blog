@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="container">
   <!-- Banner principale -->
   <div style="text-align: center; padding: 20px 0; border-bottom: 2px solid #ddd;">
@@ -14,15 +15,13 @@
   </div>
 </div>
 
-<main >
-
+<main>
       <!-- Sezione principale degli articoli -->
       <div class="row g-5 container">
           {% block section_articles %}
               {% include "landingpage/partials/_section_articles.html" %}
           {% endblock %}
       
-
             <!-- Sidebar con testo orizzontale -->
           {% block sidebar %}
               {% include "landingpage/partials/_sidebar.html" %}
