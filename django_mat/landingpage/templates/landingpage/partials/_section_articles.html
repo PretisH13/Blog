@@ -30,16 +30,19 @@
           <!-- Comments -->
           <h4>Comments</h4>
           <div class="comments-section" data-article-slug="{{ article.slug }}">
-            {% for comment in article.comments.all %}
+            {% for comment in article.comments.all|slice:":3" %}
               <div class="comment">
                 <p><span>{{ comment.author }}</span> ({{ comment.created|date }}): {{ comment.body }}</p>
               </div>
             {% empty %}
               <p>No comments yet.</p>
             {% endfor %}
+            {% if article.comments.count > 3 %}
+              <p><a href="{{ article.get_absolute_url }}#comments">See all {{ article.comments.count }} comments</a></p>
+            {% endif %}
           </div>
-
-          <!-- Add Comment -->
+    
+          <!-- Add Comment (non modificato, come richiesto) -->
           {% if user.is_authenticated %}
             <form method="post" action="{% url 'articles:add-comment' article.slug %}" class="comment-form">
               {% csrf_token %}
@@ -53,7 +56,6 @@
       </div>
       <hr class="separator">
     {% endfor %}
-
     {% block pagination %}
       {% include "landingpage/partials/_paginations.html" with page=page_obj %}
     {% endblock %}

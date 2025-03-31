@@ -4,21 +4,21 @@
 <div class="search-section">
     <form method="get" class="search-form">
         <div class="search-container">
-            <input type="text" name="q" value="{{ query }}" placeholder="Cerca..." class="search-input">
+            <input type="text" name="q" value="{{ query }}" placeholder="Search..." class="search-input">
             <select name="category" class="search-select">
-                <option value="">Tutte le categorie</option>
+                <option value="">All categories</option>
                 {% for cat in CATEGORIES %}
                     <option value="{{ cat.0 }}" {% if cat.0 == category %}selected{% endif %}>{{ cat.1 }}</option>
                 {% endfor %}
             </select>
             <select name="status" class="search-select">
-                <option value="">Tutti gli stati</option>
+                <option value="">All states</option>
                 {% for stat in STATUS_CHOICES %}
                     <option value="{{ stat.0 }}" {% if stat.0 == status %}selected{% endif %}>{{ stat.1 }}</option>
                 {% endfor %}
             </select>
             <button type="submit" class="search-btn">
-                <span>Cerca</span>
+                <span>Search</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="search-icon" viewBox="0 0 24 24">
                     <circle cx="10.5" cy="10.5" r="7.5"/>
                     <path d="M21 21l-5.2-5.2"/>
@@ -34,10 +34,10 @@
                 <p>{{ article.body|truncatewords:30 }}</p>
             </div>
         {% empty %}
-            <p class="no-results">Nessun articolo trovato per la ricerca "{{ query }}".</p>
+            <p class="no-results">No items found for your search "{{ query }}".</p>
         {% endfor %}
     {% else %}
-        <p class="no-results">Nessun articolo trovato per la ricerca "{{ query }}".</p>
+        <p class="no-results">No items found for your search "{{ query }}".</p>
     {% endif %}
 </div>
 {% endblock page_content %}

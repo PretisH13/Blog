@@ -17,14 +17,14 @@
     <h2 class="profile-edit-title">Edit Your Profile</h2>
 
     <!-- Gestione degli errori del form -->
-    {% if form.errors %}
+    {% if user_form.errors or profile_form.errors %}
     <div class="form-errors">
-        <p>Your username and password do not match. Please try again.</p>
+        <p>Si sono verificati degli errori. Controlla i dati inseriti.</p>
     </div>
     {% endif %}
 
     <!-- Form di modifica profilo -->
-    <form method="post" class="profile-edit-form">
+    <form method="post" class="profile-edit-form" enctype="multipart/form-data">
         {% csrf_token %}
 
         <!-- User Form -->

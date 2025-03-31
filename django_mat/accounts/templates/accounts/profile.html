@@ -7,6 +7,16 @@
     
     <div class="profile-details">
         <div class="profile-info">
+            <!-- Foto del profilo -->
+            <div class="profile-picture">
+                {% if user.profile.profile_picture %}
+                    <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }}'s profile picture" class="profile-img">
+                {% else %}
+                    <p>No profile picture available</p>
+                {% endif %}
+            </div>
+
+            <!-- Informazioni -->
             <div class="info-item">
                 <span class="info-label">Name:</span>
                 <span class="info-value">{{ user.username }}</span>

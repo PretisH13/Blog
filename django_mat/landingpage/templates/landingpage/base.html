@@ -5,15 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Mateo Prifti">
-    <title>Blog Template</title>
-
-    <!-- Collegamento al font Google -->
+    <title>Blog</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'LOGO/logo_pretish_.ico' %}">
 
-    <!-- Collegamento al file CSS -->
     <link href="{% static 'CSS/blog.css' %}" rel="stylesheet">
 </head>
 <body>
+  
     {% block header %}
       {% include "landingpage/partials/_header.html" %}
     {% endblock %}

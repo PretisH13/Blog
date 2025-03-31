@@ -7,13 +7,13 @@
         {% if object.img %}
             <img src="{{ object.img.url }}" alt="{{ object.title }}" class="article-image">
         {% else %}
-            <p>Nessuna immagine disponibile</p>
+            <p>No image available</p>
         {% endif %}
         <p class="article-body">{{ object.body }}</p>
 
         <div class="article-meta">
-            <p class="article-author">Autore: <span>{{ object.author }}</span></p>
-            <p class="article-published">Pubblicato il: <span>{{ object.published|date }}</span></p>
+            <p class="article-author">Author: <span>{{ object.author }}</span></p>
+            <p class="article-published">Published on: <span>{{ object.published|date }}</span></p>
         </div>
 
         <!-- Like/Dislike -->

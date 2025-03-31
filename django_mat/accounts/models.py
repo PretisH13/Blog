@@ -8,6 +8,7 @@ from django.db.models.signals import post_save
 class Profile(models.Model):
    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=CASCADE)
    birthday = models.DateField(blank= True, null=True)
+   profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True, default='profile_pics/default.jpg')
 
    def __str__(self):
        return 'Profile user {}'.format(self.user.username)

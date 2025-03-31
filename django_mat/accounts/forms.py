@@ -28,4 +28,6 @@ class ProfileEditForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['birthday',]       
+        fields = ['birthday','profile_picture'] 
+        labels = {
+'profile_picture': 'Foto del Profilo',}      
