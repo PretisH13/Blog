@@ -17,13 +17,17 @@
           <p class="article-likes">
             {% trans "Likes" %}: <span id="likes-count-{{ article.slug }}">{{ article.total_likes }}</span>
             {% if user.is_authenticated %}
-              <button class="like-button" data-slug="{{ article.slug }}">{% trans "Like" %}</button>
+              <button class="like-button" data-slug="{{ article.slug }}">
+                <i class="fas fa-thumbs-up"></i> {% trans "Like" %}
+              </button>
             {% endif %}
           </p>
           <p class="article-dislikes">
             {% trans "Dislikes" %}: <span id="dislikes-count-{{ article.slug }}">{{ article.total_dislikes }}</span>
             {% if user.is_authenticated %}
-              <button class="dislike-button" data-slug="{{ article.slug }}">{% trans "Dislike" %}</button>
+              <button class="dislike-button" data-slug="{{ article.slug }}">
+                <i class="fas fa-thumbs-down"></i> {% trans "Dislike" %}
+              </button>
             {% endif %}
           </p>
 
@@ -50,7 +54,7 @@
               <button type="submit">{% trans "Post Comment" %}</button>
             </form>
           {% else %}
-            <p><a href="{% url 'login' %}">{% trans "Log in" %}</a> {% trans "to add a comment." %}</p>
+            <p><a href=>{% trans "Log in" %}</a> {% trans "to add a comment." %}</p>
           {% endif %}
         </article>
       </div>

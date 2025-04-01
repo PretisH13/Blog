@@ -1,3 +1,71 @@
-# Default ignored files
-/shelf/
+# File di IntelliJ IDEA (se usi questo IDE)
+/.idea/
+*.iml
 /workspace.xml
+/shelf/
+
+# File di VS Code (se usi questo editor)
+/.vscode/
+
+# Ambienti virtuali Python
+venv/
+env/
+virtualenv/
+ENV/
+.env/
+
+# File di cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# File di build e temporanei
+/dist/
+/build/
+*.egg-info/
+*.egg
+
+# Database locale (es. SQLite di default in Django)
+db.sqlite3
+
+# File di migrazione (opzionale, se non vuoi versionarle tutte)
+*/migrations/*
+!*/migrations/__init__.py
+
+# File statici e media raccolti (non versionare, sono generati)
+/staticfiles/
+/media/
+
+# File di log
+*.log
+
+# File sensibili
+.env
+*.key
+secrets.json
+
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# File temporanei dell'editor
+*~
+*.swp
+*.swo
+
+# File di coverage e test
+.coverage
+coverage.xml
+*.cover
+htmlcov/
+
+# File di documentazione generati
+/docs/_build/
+
+# File di configurazione locale (se non vuoi versionarli)
+local_settings.py
+settings/local.py
+
+# File di backupgi
+*.bak
+*.backup

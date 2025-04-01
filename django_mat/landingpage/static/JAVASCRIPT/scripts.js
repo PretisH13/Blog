@@ -21,16 +21,18 @@ function updateLikeDislikeCount(slug, type, count) {
 // Gestione dei pulsanti Like
 function setupLikeButtons() {
     document.querySelectorAll('.like-button').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Previene comportamento di default (es. GET)
             const slug = this.getAttribute('data-slug');
-            const url = `/articles/${slug}/like/`;
+            const url = `/en/articles/${slug}/like/`; // Aggiunto /en/ per corrispondere ai log
 
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': getCSRFToken(),
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify({}) // Aggiunto body vuoto per POST
             })
                 .then(response => {
                     if (!response.ok) throw new Error('Errore nella richiesta di Like');
@@ -47,16 +49,18 @@ function setupLikeButtons() {
 // Gestione dei pulsanti Dislike
 function setupDislikeButtons() {
     document.querySelectorAll('.dislike-button').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Previene comportamento di default (es. GET)
             const slug = this.getAttribute('data-slug');
-            const url = `/articles/${slug}/dislike/`;
+            const url = `/en/articles/${slug}/dislike/`; // Aggiunto /en/ per corrispondere ai log
 
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': getCSRFToken(),
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify({}) // Aggiunto body vuoto per POST
             })
                 .then(response => {
                     if (!response.ok) throw new Error('Errore nella richiesta di Dislike');
@@ -126,41 +130,44 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCommentForms();
 });
 
+// Gestione del selettore della lingua
 document.addEventListener('DOMContentLoaded', function () {
     const select = document.querySelector('.language-form select');
     const toggle = document.querySelector('.language-toggle');
     const form = document.querySelector('.language-form');
 
-    // Creare un selettore personalizzato
-    const customSelect = document.createElement('div');
-    customSelect.className = 'custom-select';
-    form.appendChild(customSelect);
+    if (select && toggle && form) { // Verifica che gli elementi esistano
+        // Creare un selettore personalizzato
+        const customSelect = document.createElement('div');
+        customSelect.className = 'custom-select';
+        form.appendChild(customSelect);
 
-    // Nascondere il selettore nativo
-    select.style.display = 'none';
+        // Nascondere il selettore nativo
+        select.style.display = 'none';
 
-    // Creare le opzioni personalizzate con bandiere
-    Array.from(select.options).forEach(option => {
-        const flagCode = option.getAttribute('data-flag');
-        const customOption = document.createElement('div');
-        customOption.className = 'custom-option';
-        customOption.innerHTML = `<span class="fi fi-${flagCode}"></span> ${option.text}`;
-        customOption.dataset.value = option.value;
-        customSelect.appendChild(customOption);
+        // Creare le opzioni personalizzate con bandiere
+        Array.from(select.options).forEach(option => {
+            const flagCode = option.getAttribute('data-flag');
+            const customOption = document.createElement('div');
+            customOption.className = 'custom-option';
+            customOption.innerHTML = `<span class="fi fi-${flagCode}"></span> ${option.text}`;
+            customOption.dataset.value = option.value;
+            customSelect.appendChild(customOption);
 
-        // Aggiungere evento click
-        customOption.addEventListener('click', () => {
-            select.value = option.value;
-            select.dispatchEvent(new Event('change'));
+            // Aggiungere evento click
+            customOption.addEventListener('click', () => {
+                select.value = option.value;
+                select.dispatchEvent(new Event('change'));
+            });
         });
-    });
 
-    // Mostrare la bandiera della lingua selezionata nel pulsante
-    const updateToggleFlag = () => {
-        const selectedOption = select.options[select.selectedIndex];
-        const flagCode = selectedOption.getAttribute('data-flag');
-        toggle.innerHTML = `<span class="fi fi-${flagCode}"></span>`;
-    };
-    updateToggleFlag();
-    select.addEventListener('change', updateToggleFlag);
+        // Mostrare la bandiera della lingua selezionata nel pulsante
+        const updateToggleFlag = () => {
+            const selectedOption = select.options[select.selectedIndex];
+            const flagCode = selectedOption.getAttribute('data-flag');
+            toggle.innerHTML = `<span class="fi fi-${flagCode}"></span>`;
+        };
+        updateToggleFlag();
+        select.addEventListener('change', updateToggleFlag);
+    }
 });
