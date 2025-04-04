@@ -16,13 +16,13 @@ class Articles(models.Model):
 
     TECHNOLOGY ='TC'
     DESING = 'DS'
-    CULTURE = 'CL'
-    SCIENCE = 'SC'
+    SPORTS = 'SP'
+    POLITICS = 'SC'
     CATEGORIES = [
         (TECHNOLOGY, 'Technology'),
         (DESING,'Design'),
-        (CULTURE,'Culture'),
-        (SCIENCE,'Science')
+        (SPORTS,'Sports'),
+        (POLITICS,'Politics')
     ]
     category = models.CharField(max_length=2 ,choices=CATEGORIES, default='TL')
     title = models.CharField(max_length=250)

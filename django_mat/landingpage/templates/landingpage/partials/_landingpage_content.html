@@ -1,13 +1,13 @@
 {% load i18n %}
 <div class="container">
-  <!-- Banner principale -->
+
   <div style="text-align: center; padding: 20px 0; border-bottom: 2px solid #ddd;">
       {% block banner_big %}
           {% include "landingpage/partials/_banner_big.html" %}
       {% endblock %}
   </div>
 
-  <!-- Sezione Highlights -->
+
   <div style="background-color: #f8f9fa; padding: 20px; margin-top: 20px; border-radius: 5px;">
       {% block section_highlights %}
           {% include "landingpage/partials/_section_highlights.html" %}
@@ -16,7 +16,7 @@
 </div>
 
 <main>
-      <!-- Sezione principale degli articoli -->
+
       <div class="row g-5 container">
           {% block section_articles %}
               {% include "landingpage/partials/_section_articles.html" %}

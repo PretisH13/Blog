@@ -22,9 +22,9 @@ function updateLikeDislikeCount(slug, type, count) {
 function setupLikeButtons() {
     document.querySelectorAll('.like-button').forEach(button => {
         button.addEventListener('click', function(e) {
-            e.preventDefault(); // Previene comportamento di default (es. GET)
+            e.preventDefault();
             const slug = this.getAttribute('data-slug');
-            const url = `/en/articles/${slug}/like/`; // Aggiunto /en/ per corrispondere ai log
+            const url = `/en/articles/${slug}/like/`; g
 
             fetch(url, {
                 method: 'POST',
@@ -32,7 +32,7 @@ function setupLikeButtons() {
                     'X-CSRFToken': getCSRFToken(),
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({}) // Aggiunto body vuoto per POST
+                body: JSON.stringify({}) 
             })
                 .then(response => {
                     if (!response.ok) throw new Error('Errore nella richiesta di Like');
@@ -50,9 +50,9 @@ function setupLikeButtons() {
 function setupDislikeButtons() {
     document.querySelectorAll('.dislike-button').forEach(button => {
         button.addEventListener('click', function(e) {
-            e.preventDefault(); // Previene comportamento di default (es. GET)
+            e.preventDefault(); 
             const slug = this.getAttribute('data-slug');
-            const url = `/en/articles/${slug}/dislike/`; // Aggiunto /en/ per corrispondere ai log
+            const url = `/en/articles/${slug}/dislike/`; 
 
             fetch(url, {
                 method: 'POST',
@@ -60,7 +60,7 @@ function setupDislikeButtons() {
                     'X-CSRFToken': getCSRFToken(),
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({}) // Aggiunto body vuoto per POST
+                body: JSON.stringify({}) 
             })
                 .then(response => {
                     if (!response.ok) throw new Error('Errore nella richiesta di Dislike');
