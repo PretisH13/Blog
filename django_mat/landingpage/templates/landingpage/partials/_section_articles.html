@@ -1,0 +1,67 @@
+{% load i18n %}
+<div class="container">
+  <div>
+    <h3>{% trans "Latest articles added" %}</h3>
+
+    {% for article in page_obj %}
+      <div class="blog-post">
+        <article class="blog-post">
+          <h2>{{ article.title }}</h2>
+          <p class="blog-post-meta">{{ article.published }} <a href="#">Admin</a></p>
+          {% if article.img %} 
+            <img src="{{ article.img.url }}" alt="{{ article.title }}" class="article-image">
+          {% endif %}
+          <p>{{ article.body }}</p>
+
+          <!-- Like/Dislike -->
+          <p class="article-likes">
+            {% trans "Likes" %}: <span id="likes-count-{{ article.slug }}">{{ article.total_likes }}</span>
+            {% if user.is_authenticated %}
+              <button class="like-button" data-slug="{{ article.slug }}">
+                <i class="fas fa-thumbs-up"></i> {% trans "Like" %}
+              </button>
+            {% endif %}
+          </p>
+          <p class="article-dislikes">
+            {% trans "Dislikes" %}: <span id="dislikes-count-{{ article.slug }}">{{ article.total_dislikes }}</span>
+            {% if user.is_authenticated %}
+              <button class="dislike-button" data-slug="{{ article.slug }}">
+                <i class="fas fa-thumbs-down"></i> {% trans "Dislike" %}
+              </button>
+            {% endif %}
+          </p>
+
+          <!-- Comments -->
+          <h4>{% trans "Comments" %}</h4>
+          <div class="comments-section" data-article-slug="{{ article.slug }}">
+            {% for comment in article.comments.all|slice:":3" %}
+              <div class="comment">
+                <p><span>{{ comment.author }}</span> ({{ comment.created|date }}): {{ comment.body }}</p>
+              </div>
+            {% empty %}
+              <p>{% trans "No comments yet." %}</p>
+            {% endfor %}
+            {% if article.comments.count > 3 %}
+              <p><a href="{{ article.get_absolute_url }}#comments">{% trans "See all" %} {{ article.comments.count }} {% trans "comments" %}</a></p>
+            {% endif %}
+          </div>
+    
+          <!-- Add Comment -->
+          {% if user.is_authenticated %}
+            <form method="post" action="{% url 'articles:add-comment' article.slug %}" class="comment-form">
+              {% csrf_token %}
+              <textarea name="body" rows="2" placeholder="{% trans 'Add a comment...' %}"></textarea>
+              <button type="submit">{% trans "Post Comment" %}</button>
+            </form>
+          {% else %}
+            <p><a href=>{% trans "Log in" %}</a> {% trans "to add a comment." %}</p>
+          {% endif %}
+        </article>
+      </div>
+      <hr class="separator">
+    {% endfor %}
+    {% block pagination %}
+      {% include "landingpage/partials/_paginations.html" with page=page_obj %}
+    {% endblock %}
+  </div>
+</div>

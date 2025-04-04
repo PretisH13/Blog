@@ -1,0 +1,34 @@
+{% load i18n static %}
+<div class="header">
+  <div class="container" style="display: flex; align-items: center;">
+      <div class="logo" style="display: flex; align-items: center; margin-right: 20px;">
+          <a href="{% url 'landingpage:landingpage' %}" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="{% static 'LOGO/logo_pretish_.ico' %}" alt="{% trans 'Logo' %}" class="logo-img" style="width: 60px; height: 60px; margin-right: 10px; position: relative; z-index: 1;">              {% trans "My Blog" %}
+          </a>
+      </div>
+      <div class="nav">
+          <form action="{% url 'articles:search' %}" method="get" class="search-form">
+            <div class="search-container">
+                <input type="text" name="q" placeholder="{% trans 'Search...' %}" class="search-input">
+                <button type="submit" class="search-btn" aria-label="{% trans 'Search' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="search-icon" role="img" viewBox="0 0 24 24">
+                        <title>{% trans "Search" %}</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"/>
+                        <path d="M21 21l-5.2-5.2"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'accounts:logout' %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger">{% trans "Log Out" %}</button>
+                        </form>
+                        <a class="text" href="{% url 'accounts:profile' %}">{{ user.username }}</a>
+                    {% else %}
+                        <a class="btn btn-outline-secondary" href="{% url 'accounts:login' %}">{% trans "Log In" %}</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'accounts:register' %}">{% trans "Register" %}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,14 @@
+{% load i18n %}
+<div class="sidebar container">
+  {% block widget_about %}
+    {% include "landingpage/partials/_widget_about.html" %}
+  {% endblock %}
+
+  {% block widget_archives %}
+    {% include "landingpage/partials/_widget_archives.html" %}
+  {% endblock %}
+
+  {% block widget_social %}
+    {% include "landingpage/partials/_widget_social.html" %}
+  {% endblock %}
+</div>
