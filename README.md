@@ -1,46 +1,69 @@
-En 
+English Version:
 
-This Blog is a web application developed with Django, designed to offer a complete and intuitive experience in creating and managing articles. The project combines a powerful backend with a modern user interface, made with HTML, CSS and JavaScript, ensuring smooth and interactive navigation.
+Personal Blog – PriestH13
 
-Main features -Creation and management of articles – Users can write, edit and publish articles on various topics.
+Introduction:
+This project is a personal blog developed using HTML, CSS, and JavaScript, designed to allow the management and publishing of articles online in a simple and efficient manner. The design is clean and modern, featuring an intuitive user interface that provides a good reading experience on both desktop and mobile devices. This blog allows users to view articles, comments, and other post-related information in a well-structured format.
 
-Interaction system – Each article can receive comments, likes and dislikes, allowing users to express opinions and interact with the content.
--Authentication system – The blog includes a complete user area with the possibility of:
+The project focuses on creating a lightweight blogging platform that is easily expandable, adaptable for various uses such as a personal blog, a news portal, or an interactive content platform.
 
-Register and create a personal profile
+Features:
 
-Login/logout to access advanced features
+Article Management: ability to add, edit, and delete articles on the blog.
 
-Recover your password with a "Forgot Password" system
+Responsive Design: optimized for various devices, including desktops, tablets, and smartphones.
 
--User profile management – ​​Each user has a personalized profile where they can manage their data and activities within the blog.
+Post Comments: section for commenting and interacting with the published content.
 
--Multilingual support – Users can select the interface language between Albanian (sq), Italian (it) and English (en), improving accessibility for a wider audience.
+Article Archive: viewing of recent posts and access to older articles.
 
-Technologies used
-
-Django – Backend framework for secure and efficient data management. -HTML, CSS, JavaScript – For an attractive and responsive frontend. -SQLite– For data storage. Created by PretisH13 (Mateo Prifti)
+Interactive Animations: dynamic transitions and animations to enhance the user experience.
 
 
+Technologies Used:
 
-It
- Questo Blog è un'applicazione web sviluppata con Django, pensata per offrire un'esperienza completa e intuitiva nella creazione e gestione di articoli. Il progetto combina un backend potente con un'interfaccia utente moderna, realizzata con HTML, CSS e JavaScript, garantendo una navigazione fluida e interattiva.
+HTML5: for structuring the content and pages.
 
-Funzionalità principali -Creazione e gestione articoli – Gli utenti possono scrivere, modificare e pubblicare articoli su vari argomenti.
+CSS3: for design, responsiveness, and styling.
 
-Sistema di interazione – Ogni articolo può ricevere commenti, like e dislike, permettendo agli utenti di esprimere opinioni e interagire con il contenuto.
--Sistema di autenticazione – Il blog include un'area utenti completa con la possibilità di:
+JavaScript: for interactive features like comment handling and animations.
 
-Registrarsi e creare un profilo personale
+Git/GitHub: for version control and collaboration.
 
-Effettuare il login/logout per accedere alle funzioni avanzate
+Font Awesome: for integrating elegant icons to improve the visual appeal of the site.
 
-Recuperare la password con un sistema di "Password dimenticata"
 
--Gestione del profilo utente – Ogni utente ha un profilo personalizzato dove può gestire i propri dati e attività all’interno del blog.
 
--Supporto multilingua – Gli utenti possono selezionare la lingua dell’interfaccia tra albanese (sq), italiano (it) e inglese (en), migliorando l’accessibilità per un pubblico più ampio.
+Versione Italiana:
 
-Tecnologie utilizzate
+Blog Personale – PriestH13
 
-Django – Framework backend per una gestione sicura ed efficiente dei dati. -HTML, CSS, JavaScript – Per un frontend accattivante e reattivo. -SQLite– Per l'archiviazione dei dati. Creato da PretisH13 (Mateo Prifti)
+Introduzione:
+Questo progetto è un blog personale sviluppato utilizzando HTML, CSS e JavaScript, pensato per consentire la gestione e la pubblicazione di articoli online in modo semplice ed efficace. Il design è pulito e moderno, con un'interfaccia utente intuitiva che offre una buona esperienza di lettura su dispositivi desktop e mobili. Questo blog permette di visualizzare articoli, commenti e altre informazioni relative ai post in un formato ben strutturato.
+
+Il progetto si concentra sull’implementazione di una piattaforma di blogging leggera, facilmente espandibile, che può essere adattata per diversi usi, come un blog personale, un portale di notizie o una piattaforma di contenuti interattivi.
+
+Funzionalità:
+
+Gestione articoli: possibilità di aggiungere, modificare ed eliminare articoli nel blog.
+
+Design responsivo: ottimizzazione per vari dispositivi, inclusi desktop, tablet e smartphone.
+
+Commenti sui post: sezione per commentare e interagire con i contenuti pubblicati.
+
+Archivio articoli: visualizzazione dei post più recenti e accesso ai vecchi articoli.
+
+Animazioni interattive: transizioni e animazioni dinamiche per migliorare l'esperienza dell'utente.
+
+
+Tecnologie usate:
+
+HTML5: per la struttura dei contenuti e delle pagine.
+
+CSS3: per il design, la responsività e la gestione degli stili.
+
+JavaScript: per le funzionalità interattive come la gestione dei commenti e delle animazioni.
+
+Git/GitHub: per il versionamento del codice e la collaborazione.
+
+Font Awesome: per l'integrazione di icone eleganti per migliorare l'aspetto visivo del sito.
