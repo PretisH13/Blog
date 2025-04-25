@@ -20,19 +20,6 @@ Article Archive: viewing of recent posts and access to older articles.
 Interactive Animations: dynamic transitions and animations to enhance the user experience.
 
 
-Technologies Used:
-
-HTML5: for structuring the content and pages.
-
-CSS3: for design, responsiveness, and styling.
-
-JavaScript: for interactive features like comment handling and animations.
-
-Git/GitHub: for version control and collaboration.
-
-Font Awesome: for integrating elegant icons to improve the visual appeal of the site.
-
-
 
 Versione Italiana:
 
@@ -56,15 +43,4 @@ Archivio articoli: visualizzazione dei post più recenti e accesso ai vecchi art
 Animazioni interattive: transizioni e animazioni dinamiche per migliorare l'esperienza dell'utente.
 
 
-Tecnologie usate:
-
-HTML5: per la struttura dei contenuti e delle pagine.
-
-CSS3: per il design, la responsività e la gestione degli stili.
-
-JavaScript: per le funzionalità interattive come la gestione dei commenti e delle animazioni.
-
-Git/GitHub: per il versionamento del codice e la collaborazione.
-
-Font Awesome: per l'integrazione di icone eleganti per migliorare l'aspetto visivo del sito.
 [![My Skills](https://skillicons.dev/icons?i=js,html,css,python)](https://skillicons.dev)
