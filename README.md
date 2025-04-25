@@ -67,3 +67,4 @@ JavaScript: per le funzionalità interattive come la gestione dei commenti e del
 Git/GitHub: per il versionamento del codice e la collaborazione.
 
 Font Awesome: per l'integrazione di icone eleganti per migliorare l'aspetto visivo del sito.
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,python)](https://skillicons.dev)
