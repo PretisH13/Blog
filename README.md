@@ -1,46 +1,18 @@
-English Version:
+# Personal Blog – PriestH13
 
-Personal Blog – PriestH13
+## Introduction
+This project is a personal blog developed using HTML, CSS, JavaScript, and Python (Django). It is designed to facilitate the management and publishing of articles in a simple and efficient manner. The platform offers a clean, modern interface, optimized for both desktop and mobile devices. Users can easily read articles, leave comments, and explore the content in an intuitive layout.
 
-Introduction:
-This project is a personal blog developed using HTML, CSS, and JavaScript, designed to allow the management and publishing of articles online in a simple and efficient manner. The design is clean and modern, featuring an intuitive user interface that provides a good reading experience on both desktop and mobile devices. This blog allows users to view articles, comments, and other post-related information in a well-structured format.
+The goal of the project is to create a lightweight, scalable blogging platform, adaptable for personal blogs, news portals, or interactive content platforms.
 
-The project focuses on creating a lightweight blogging platform that is easily expandable, adaptable for various uses such as a personal blog, a news portal, or an interactive content platform.
+## Features
 
-Features:
+- **Article Management:** Admins can add, edit, or delete articles from the blog.
+- **Responsive Design:** The site is optimized for various screen sizes, including desktops, tablets, and smartphones.
+- **Post Comments:** Visitors can interact with articles through comments.
+- **Article Archive:** Browse recent and older posts, ensuring easy access to past content.
+- **Interactive Animations:** Dynamic transitions and smooth animations improve the user experience.
+- **User Authentication:** Allows users to sign in and manage their content or leave comments.
 
-Article Management: ability to add, edit, and delete articles on the blog.
-
-Responsive Design: optimized for various devices, including desktops, tablets, and smartphones.
-
-Post Comments: section for commenting and interacting with the published content.
-
-Article Archive: viewing of recent posts and access to older articles.
-
-Interactive Animations: dynamic transitions and animations to enhance the user experience.
-
-
-
-Versione Italiana:
-
-Blog Personale – PriestH13
-
-Introduzione:
-Questo progetto è un blog personale sviluppato utilizzando HTML, CSS e JavaScript, pensato per consentire la gestione e la pubblicazione di articoli online in modo semplice ed efficace. Il design è pulito e moderno, con un'interfaccia utente intuitiva che offre una buona esperienza di lettura su dispositivi desktop e mobili. Questo blog permette di visualizzare articoli, commenti e altre informazioni relative ai post in un formato ben strutturato.
-
-Il progetto si concentra sull’implementazione di una piattaforma di blogging leggera, facilmente espandibile, che può essere adattata per diversi usi, come un blog personale, un portale di notizie o una piattaforma di contenuti interattivi.
-
-Funzionalità:
-
-Gestione articoli: possibilità di aggiungere, modificare ed eliminare articoli nel blog.
-
-Design responsivo: ottimizzazione per vari dispositivi, inclusi desktop, tablet e smartphone.
-
-Commenti sui post: sezione per commentare e interagire con i contenuti pubblicati.
-
-Archivio articoli: visualizzazione dei post più recenti e accesso ai vecchi articoli.
-
-Animazioni interattive: transizioni e animazioni dinamiche per migliorare l'esperienza dell'utente.
-
-
+## Technologies Used
 [![My Skills](https://skillicons.dev/icons?i=js,html,css,python)](https://skillicons.dev)
