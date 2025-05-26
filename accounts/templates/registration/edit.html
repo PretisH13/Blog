@@ -1,0 +1,64 @@
+{% extends "landingpage/base.html" %}
+{% load i18n %}
+
+{% block page_content %}
+
+<!-- Messaggi di notifica -->
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-prime{% endif %}" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="profile-edit-container">
+    <h2 class="profile-edit-title">{% trans "Edit Your Profile" %}</h2>
+
+    <!-- Gestione degli errori del form -->
+    {% if user_form.errors or profile_form.errors %}
+    <div class="form-errors">
+        <p>{% trans "Si sono verificati degli errori. Controlla i dati inseriti." %}</p>
+    </div>
+    {% endif %}
+
+    <!-- Form di modifica profilo -->
+    <form method="post" class="profile-edit-form" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- User Form -->
+        {% for field in user_form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <small class="form-help-text">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+            <small class="form-error-text">{{ error }}</small>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <!-- Profile Form -->
+        {% for field in profile_form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <small class="form-help-text">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+            <small class="form-error-text">{{ error }}</small>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <!-- Pulsante di invio -->
+        <button type="submit" class="btn-submit">{% trans "Save Changes" %}</button>
+    </form>
+</div>
+
+{% endblock page_content %}

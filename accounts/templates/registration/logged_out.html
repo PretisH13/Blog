@@ -1,0 +1,14 @@
+{% extends "landingpage/base.html" %}
+{% load i18n %}
+
+{% block page_content %}
+
+<div class="logout-container">
+    <div class="logout-card">
+        <h2 class="logout-title">{% trans "You have been disconnected" %}</h2>
+        <p class="logout-message">{% trans "Thank you for visiting us. We hope to see you again soon!" %}</p>
+        <a href="{% url 'accounts:login' %}" class="btn-login">{% trans "Sign in again" %}</a>
+    </div>
+</div>
+
+{% endblock page_content %}

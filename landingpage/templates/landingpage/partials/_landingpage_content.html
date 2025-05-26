@@ -1,0 +1,30 @@
+{% load i18n %}
+<div class="container">
+
+  <div style="text-align: center; padding: 20px 0; border-bottom: 2px solid #ddd;">
+      {% block banner_big %}
+          {% include "landingpage/partials/_banner_big.html" %}
+      {% endblock %}
+  </div>
+
+
+  <div style="background-color: #f8f9fa; padding: 20px; margin-top: 20px; border-radius: 5px;">
+      {% block section_highlights %}
+          {% include "landingpage/partials/_section_highlights.html" %}
+      {% endblock %}
+  </div>
+</div>
+
+<main>
+
+      <div class="row g-5 container">
+          {% block section_articles %}
+              {% include "landingpage/partials/_section_articles.html" %}
+          {% endblock %}
+      
+            <!-- Sidebar con testo orizzontale -->
+          {% block sidebar %}
+              {% include "landingpage/partials/_sidebar.html" %}
+          {% endblock %}
+      </div>
+</main>

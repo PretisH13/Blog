@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="card-container">
+  {% for highlight in highlights %}
+    {% block _highlights_card %}
+      {% include "landingpage/partials/_highlights_card.html" with highlight=highlight %}
+    {% endblock %}
+  {% endfor %}
+</div>

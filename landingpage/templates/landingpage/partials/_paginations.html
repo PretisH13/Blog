@@ -1,0 +1,27 @@
+{% load i18n %}
+<nav class="pagination-container">
+    {% if page.has_previous %}
+      <a class="pagination-btn" href="?page=1">{% trans "« first" %}</a>
+      <a class="pagination-btn" href="?page={{ page.previous_page_number }}">{% trans "previous" %}</a>
+    {% else %}
+      <a class="pagination-btn disabled" aria-disabled="true">{% trans "First" %}</a>
+      <a class="pagination-btn disabled" aria-disabled="true">{% trans "Previous" %}</a>
+    {% endif %}
+  
+    <span class="pagination-info">{% trans "Page" %} {{ page.number }} {% trans "of" %} {{ page.paginator.num_pages }}.</span>
+  
+    {% if page.has_next %}
+      <a class="pagination-btn" href="?page={{ page.next_page_number }}">{% trans "next" %}</a>
+      <a class="pagination-btn" href="?page={{ page.paginator.num_pages }}">{% trans "last »" %}</a>
+    {% else %}
+      <a class="pagination-btn disabled" aria-disabled="true">{% trans "Next" %}</a>
+      <a class="pagination-btn disabled" aria-disabled="true">{% trans "Last" %}</a>
+    {% endif %}
+  </nav>
+  
+  <br>
+  
+  <nav class="pagination-container" aria-label="{% trans 'Pagination' %}">
+    <a class="pagination-btn" href="#">{% trans "Older" %}</a>
+    <a class="pagination-btn disabled" aria-disabled="true">{% trans "Newer" %}</a>
+  </nav>
