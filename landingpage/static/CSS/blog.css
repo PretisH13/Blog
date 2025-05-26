@@ -1030,7 +1030,7 @@ footer a:hover {
   align-items: center;
   min-height: 100vh;
   background-color: var(--gray);
-  padding: 20px;
+  padding: 10px
 }
 
 .registration-card {
@@ -1038,8 +1038,8 @@ footer a:hover {
   border: 1px solid var(--light-gray);
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  max-width: 400px;
+  padding: 13px;
+  max-width: 700px;
   width: 100%;
   text-align: center;
 }
@@ -1789,8 +1789,7 @@ form p a:hover {
   position: relative;
 }
 
-/* Aggiungere bandiere alle opzioni (non supportato nativamente, serve JavaScript per un selettore personalizzato) */
-/* Per ora, mostriamo la bandiera della lingua selezionata nel pulsante */
+
 .language-toggle::before {
   content: '';
   position: absolute;
